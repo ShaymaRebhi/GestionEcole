@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('cours', function (Blueprint $table) {
             $table->id();
-            $table->string('nomCours');
-             $table->string('image');
-             $table->string('typeCours');
+            $table->string('nom_cours');
+             $table->string('image_cours');
+
+             $table->enum('typeCours', ['Tp', 'Td','Cours']);
             $table->timestamps();
         });
     }
