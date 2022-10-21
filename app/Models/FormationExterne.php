@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\CentreFormation;
 class FormationExterne extends Model
 {
     use HasFactory;
+    protected $fillable = ['Nom', 'Duree', 'ObjectifGlobale', 'DateDebut', 'DateFin'];
 
-
-    public function CentreFormation()
+/* 
+    public function centreFormation()
 
 {
 
 return $this->belongsTo(CentreFormation::class);
 
-}
-
-   
+} */
 }

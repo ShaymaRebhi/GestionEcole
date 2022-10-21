@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Components\Formations\FormationExterneController;
+use App\Http\Controllers\Components\Formations\FormationInterneController;
+use App\Http\Controllers\Components\Formations\CentreFormationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +46,6 @@ Route::get('/formationsinternesList', function () {
 Route::get('/centreformationList', function () {
     return view('Components.Centreformation.centreformationList');
 })->name('centreformationList');
+Route::resource('FormationExterne', FormationExterneController::class);
+Route::resource('FormationInterne', FormationInterneController::class);
+Route::resource('CentreFormation', CentreFormationController::class);

@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+     
         Schema::create('formation_externes', function (Blueprint $table) {
             $table->id();
             $table->string('Nom');
@@ -20,13 +21,11 @@ return new class extends Migration
             $table->string('ObjectifGlobale');
             $table->date('DateDebut');
             $table->date('DateFin');
-            $table->foreignId('Centre_id')
-            ->constrained()
-            ->onUpdate('restrict')
-            ->onDelete('restrict');
-        
-        
+            
+            $table->timestamps();
         });
+
+        
     }
 
     /**
