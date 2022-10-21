@@ -44,7 +44,7 @@
                              </a>
                          </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('formationsexternesList') }}">
+                <a class="nav-link " href="{{ route('FormationExterne.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                     </div>
@@ -52,7 +52,7 @@
                 </a>
             </li>
              <li class="nav-item">
-                            <a class="nav-link " href="{{ route('formationsinternesList') }}">
+                            <a class="nav-link " href="{{ route('FormationInterne.index') }}">
                                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                                 </div>
@@ -60,7 +60,7 @@
                             </a>
               </li>
              <li class="nav-item">
-                            <a class="nav-link " href="{{ route('centreformationList') }}">
+                            <a class="nav-link " href="{{ route('CentreFormation.index') }}">
                                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                                 </div>

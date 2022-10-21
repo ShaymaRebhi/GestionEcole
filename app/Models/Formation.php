@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     use HasFactory;
+    protected $fillable = ['Nom', 'Duree', 'ObjectifGlobale', 'DateDebut', 'DateFin'];
 }

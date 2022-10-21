@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('NomCentreFormation');
             $table->string('Formateur');
             $table->string('Lieux');
-            
+            $table->timestamps();
         });
     }
 
