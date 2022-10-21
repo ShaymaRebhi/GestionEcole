@@ -10,27 +10,35 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="{{route('home')}}" >
+                <a class="nav-link " href="{{route('home')}}" :active="request()->routeIs('home')">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+                    <span>{{ __('Dashboard') }}</span>
                     </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('tables') }}">
+                <a class="nav-link " href="{{ route('tables') }}" :active="request()->routeIs('tables')">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Tables</span>
-                    </a>
+                    <span >{{ __('Tables') }}</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="../pages/billing.html">
+                <a class="nav-link " href="{{ route('categories.index') }}" :active="request()->routeIs('tables')">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+                        <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Billing</span>
+                    <span >{{ __('Categories') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('tags.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-tag text-success text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">{{ __('Tags') }}</span>
                 </a>
             </li>
             <li class="nav-item">
