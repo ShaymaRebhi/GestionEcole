@@ -5,8 +5,7 @@ namespace App\Models;
 use App\Traits\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Tag extends Model
 {
     use HasFactory;
@@ -34,8 +33,9 @@ class Tag extends Model
         return $this->slug;
     }
 
-    public function Posts(): MorphToMany
+    public function Posts()
     {
-        return $this->morphedByMany(Post::class, 'taggable');
+        return $this->belongsToMany(Post::class);
     }
+
 }

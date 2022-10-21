@@ -36,12 +36,4 @@ class Category extends Model
         return $this->slug;
     }
 
-    public function up()
-    {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
-    }
 }
