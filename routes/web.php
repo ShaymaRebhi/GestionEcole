@@ -27,6 +27,14 @@ Route::get('/coursList', function () {
     return view('Components.Cours.coursList');
 })->name('coursList');
 
+Route::get('/clubsList', function () {
+    return view('Components.Club.clubsList');
+})->name('clubsList');
+
+Route::get('/eventsList', function () {
+    return view('Components.Event.eventsList');
+})->name('eventsList');
+
 Route::get('/moduleList', function () {
     return view('Components.Module.moduleList');
 })->name('moduleList');
