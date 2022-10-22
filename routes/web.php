@@ -4,6 +4,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Components\Modules\ModuleController;
+use App\Http\Controllers\Components\Cours\CoursController;
+use App\Http\Controllers\Components\Classe\ClasseController;
+use App\Http\Controllers\Components\Formations\FormationExterneController;
+use App\Http\Controllers\Components\Formations\FormationInterneController;
+use App\Http\Controllers\Components\Formations\CentreFormationController;
 
 /*
 |--------------------------------------------------------------------------
