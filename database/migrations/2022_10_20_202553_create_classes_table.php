@@ -13,19 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-     
-        Schema::create('formation_externes', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom');
-            $table->integer('Duree');
-            $table->string('ObjectifGlobale');
-            $table->date('DateDebut');
-            $table->date('DateFin');
-            
+             $table->string('nom_classe');
+             $table->string('niveau');
+            $table->enum('option', ['TWIN', 'SIM','SE','SAE','DS','BI','ARCTIC','SLEAM','INFINI']);
             $table->timestamps();
         });
-
-        
     }
 
     /**
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formation_externes');
+        Schema::dropIfExists('classes');
     }
 };

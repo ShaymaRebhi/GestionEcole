@@ -8,14 +8,26 @@ use App\Models\CentreFormation;
 class FormationExterne extends Model
 {
     use HasFactory;
-    protected $fillable = ['Nom', 'Duree', 'ObjectifGlobale', 'DateDebut', 'DateFin'];
 
-/* 
+
+ 
+    protected $fillable = [
+        'Nom',
+        'Duree',
+        'ObjectifGlobale',
+        'DateDebut',
+        'DateFin',
+        'centre_formations_id',
+        'updated_at',
+        'created_at'
+    ];
+
+
     public function centreFormation()
 
-{
-
-return $this->belongsTo(CentreFormation::class);
-
-} */
+    {
+    
+    return $this->belongsTo(CentreFormation::class);
+    
+    }
 }
