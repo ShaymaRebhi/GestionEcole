@@ -47,6 +47,3 @@ Route::get('/centreformationList', function () {
     return view('Components.Centreformation.centreformationList');
 })->name('centreformationList');
 
-Route::resource('cours', CoursController::class);
-Route::resource('module', ModuleController::class);
-Route::resource('classe', ClasseController::class);
