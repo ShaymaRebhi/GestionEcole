@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Components\Formations\CentreFormationController;
+use App\Http\Controllers\Components\Formations\FormationExterneController;
+use App\Http\Controllers\Components\Formations\FormationInterneController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
