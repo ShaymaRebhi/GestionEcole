@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Components\Formations\FormationExterneController;
-use App\Http\Controllers\Components\Formations\FormationInterneController;
-use App\Http\Controllers\Components\Formations\CentreFormationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,10 @@ use App\Http\Controllers\Components\Formations\CentreFormationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tables', function () {
@@ -57,3 +56,18 @@ Route::get('/centreformationList', function () {
 Route::resource('FormationExterne', FormationExterneController::class);
 Route::resource('FormationInterne', FormationInterneController::class);
 Route::resource('CentreFormation', CentreFormationController::class);
+
+Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'tags' ,'as' => 'tags.' ],function () {
+    Route::get('/', [TagController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+});
+
+
+
+
+
