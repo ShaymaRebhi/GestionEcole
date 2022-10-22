@@ -40,6 +40,11 @@
 			<div class="col-sm-10">
             {{ $formationExterne->DateFin }}			</div>
 		</div>
+		<div class="row mb-4">
+			<label class="col-sm-2 col-label-form"><b>Centre Formation</b></label>
+			<div class="col-sm-10">
+            {{ $centre->NomCentreFormation }}			</div>
+		</div>
 	</div>
 </div>
 

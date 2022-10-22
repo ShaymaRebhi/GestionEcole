@@ -52,6 +52,23 @@
 					<input type="date" name="DateFin" class="form-control" />
 				</div>
 			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-label-form">Centre Formation</label>
+				<div class="col-sm-10">
+				<select class="form-select" aria-label="Default select example" name="centre_formations_id">
+					<option selected>Open this select menu</option>
+					@if(count($data1) > 0)
+
+				@foreach($data1 as $row)
+					<option value="{{ $row->id}}" name="centre_formations_id">{{ $row->NomCentreFormation }}</option>
+					>
+					@endforeach
+				@else
+					<option value="NULL">No Data</option>
+					@endif
+					</select>
+				</div>
+			</div>
 			
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Add" />

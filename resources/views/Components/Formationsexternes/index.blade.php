@@ -24,10 +24,11 @@
 		<table class="table table-bordered">
 			<tr>
 				<th>Nom</th>
-				<th>ObjectifGlobale</th>
+				<th>Objectif Globale</th>
 				<th>Duree</th>
-				<th>DateDebut</th>
-				<th>DateFin</th>
+				<th>Date Debut</th>
+				<th>Date Fin</th>
+				
 			</tr>
 			@if(count($data) > 0)
 
