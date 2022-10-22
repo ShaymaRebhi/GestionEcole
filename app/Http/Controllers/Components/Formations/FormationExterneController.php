@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Components\Formations;
 
 use App\Http\Controllers\Controller;
 use App\Models\FormationExterne;
+use App\Models\CentreFormation;
 use Illuminate\Http\Request;
 
 class FormationExterneController extends Controller
@@ -16,6 +17,7 @@ class FormationExterneController extends Controller
     public function index()
     {
         $data = FormationExterne::latest()->get();
+        
 
         return view('Components.Formationsexternes.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
   
@@ -28,7 +30,8 @@ class FormationExterneController extends Controller
      */
     public function create()
     {
-        return view('Components.Formationsexternes.create');
+        $data1 = CentreFormation::latest()->get();
+        return view('Components.Formationsexternes.create', compact('data1'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -45,6 +48,7 @@ class FormationExterneController extends Controller
             'ObjectifGlobale'         =>  'required',
             'DateDebut'          =>  'required',
             'DateFin'          =>  'required',
+
         ]);
 
     
@@ -58,6 +62,7 @@ class FormationExterneController extends Controller
         $formationExterne->ObjectifGlobale = $request->ObjectifGlobale;
         $formationExterne->DateDebut = $request->DateDebut;
         $formationExterne->DateFin = $request->DateFin;
+        $formationExterne->centre_formations_id = $request->centre_formations_id;
 
         $formationExterne->save();
 
@@ -74,7 +79,8 @@ class FormationExterneController extends Controller
     public function show( $id)
     {
         $formationExterne = FormationExterne::find($id);
-        return view('Components.Formationsexternes.show', compact('formationExterne'));
+        $centre = CentreFormation::find($formationExterne->centre_formations_id);
+        return view('Components.Formationsexternes.show', compact('formationExterne','centre'));
     }
 
     /**
@@ -86,8 +92,10 @@ class FormationExterneController extends Controller
     public function edit( $id)
     {
         $formationExterne = FormationExterne::find($id);
+        $centre = CentreFormation::find($formationExterne->centre_formations_id);
+        $data1 = CentreFormation::latest()->get();
         
-        return view('Components.Formationsexternes.edit', compact('formationExterne'));
+        return view('Components.Formationsexternes.edit', compact('formationExterne','centre'), compact('data1'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -115,6 +123,7 @@ class FormationExterneController extends Controller
         $formationExterne->ObjectifGlobale = $request->ObjectifGlobale;
         $formationExterne->DateDebut = $request->DateDebut;
         $formationExterne->DateFin = $request->DateFin;
+        $formationExterne->centre_formations_id = $request->centre_formations_id;
 
         $formationExterne =FormationExterne::find($id);
         $formationExterne -> update($request->all());
