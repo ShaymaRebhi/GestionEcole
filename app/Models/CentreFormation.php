@@ -8,6 +8,9 @@ use App\Models\FormationExterne;
 class CentreFormation extends Model
 {
     use HasFactory;
+    
+   
+
     public function formationExternes()
 
 {
