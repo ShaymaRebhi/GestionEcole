@@ -2,56 +2,125 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
-            <img src="../img/School Lab (1).png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">School Lab </span>
+            <img src="/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold">Argon Dashboard 2</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link " href="{{route('home')}}" >
+                <a class="nav-link " href="{{route('home')}}" :active="request()->routeIs('home')">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+                    <span>{{ __('Dashboard') }}</span>
                     </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('tables') }}">
+                <a class="nav-link " href="{{ route('tables') }}" :active="request()->routeIs('tables')">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Tables</span>
-                    </a>
+                    <span >{{ __('Tables') }}</span>
+                </a>
             </li>
-
-
-
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('formationsexternesList') }}">
+                <a class="nav-link " href="{{ route('categories.index') }}" :active="request()->routeIs('tables')">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span >{{ __('Categories') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('tags.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-tag text-success text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">{{ __('Tags') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('posts.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-tag text-success text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">{{ __('Posts') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('coursList') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Cours</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('clubsList') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-chat-round text-success text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Clubs</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('eventsList') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Events</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('moduleList') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Modules</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('FormationExterne.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                     </div>
                     <span class="nav-link-text ms-1">Formations externes</span>
                 </a>
             </li>
-             <li class="nav-item">
-                            <a class="nav-link " href="{{ route('formationsinternesList') }}">
-                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-                                </div>
-                                <span class="nav-link-text ms-1">Formations internes</span>
-                            </a>
-              </li>
-             <li class="nav-item">
-                            <a class="nav-link " href="{{ route('centreformationList') }}">
-                                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                    <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-                                </div>
-                                <span class="nav-link-text ms-1">Centre Formations</span>
-                            </a>
-                        </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('FormationInterne.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Formations internes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('CentreFormation.index') }}">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Centre Formations</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="../pages/virtual-reality.html">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-app text-info text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="../pages/rtl.html">
+                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
@@ -63,7 +132,6 @@
                     <span class="nav-link-text ms-1">Profile</span>
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link " href="../pages/sign-in.html">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -80,8 +148,6 @@
                     <span class="nav-link-text ms-1">Sign Up</span>
                 </a>
             </li>
-
-
         </ul>
     </div>
 </aside>
