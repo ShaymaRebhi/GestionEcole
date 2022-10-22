@@ -22,7 +22,10 @@ return new class extends Migration
             $table->integer("nbPersonnes");
             $table->integer("nbPersonnesMax");
             $table->string("lieu");
+            //ManyToOne(events->club)
+            $table->foreignId("club_id")->constrained("clubs")->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 
