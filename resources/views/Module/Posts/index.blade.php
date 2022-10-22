@@ -56,7 +56,9 @@
                         <td colspan="5">No Record Found</td>
                     </tr>
                 @endforelse
-
+                <div >
+                    {{ $posts->links('vendor.pagination.bootstrap-5') }}
+                </div>
             </div>
             <!-- Sidebar content -->
             <div class="col-lg-3 mb-4 mb-lg-0 px-lg-0 mt-lg-0">
