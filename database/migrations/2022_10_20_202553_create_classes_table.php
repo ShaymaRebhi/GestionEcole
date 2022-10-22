@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cours', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('modules_id')
-            ->constrained()
-            ->onUpdate('restrict')
-            ->onDelete('restrict');
-            $table->string('nom_cours');
-             $table->string('image_cours');
-
-             $table->enum('typeCours', ['Tp', 'Td','Cours']);
+             $table->string('nom_classe');
+             $table->string('niveau');
+            $table->enum('option', ['TWIN', 'SIM','SE','SAE','DS','BI','ARCTIC','SLEAM','INFINI']);
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cours');
+        Schema::dropIfExists('classes');
     }
 };
