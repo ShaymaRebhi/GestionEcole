@@ -56,6 +56,7 @@ Route::get('/tables', function () {
 
 
 
+
 //Categories
 Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
