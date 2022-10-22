@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Club;
 
 class ClubController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+      $clubs= Club::all();
+      return view('Components.Club.clubsList',['clubs'=>$clubs]);
+      
     }
 
     /**
@@ -34,7 +33,22 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /*   $request->validate([
+            'nom' => 'required|string|max:255',
+            'nbPersonnes' => 'required|integer|max:50',
+            'dateCreation' => 'required',
+            'description' => 'required',
+        ]); */
+        $club = Club::create([
+            'nom' => $request->nom,
+            'type' => $request->type,
+            'nbPersonnes' => $request->nbPersonnes,
+            'dateCreation' => $request->dateCreation ,
+            'description' => $request->description
+        ]);
+        session()->flash('message','Tag Added Successfully');
+        //$this->resetInput();
+        return redirect()->route('clubs.clubsList')->with('status', 'Club Created Successfully');
     }
 
     /**

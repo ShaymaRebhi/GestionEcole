@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ClubController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Components\Modules\ModuleController;
 use App\Http\Controllers\Components\Cours\CoursController;
@@ -34,10 +35,6 @@ Route::get('/coursList', function () {
     return view('Components.Cours.coursList');
 })->name('coursList');
 
-Route::get('/clubsList', function () {
-    return view('Components.Club.clubsList');
-})->name('clubsList');
-
 Route::get('/eventsList', function () {
     return view('Components.Event.eventsList');
 })->name('eventsList');
@@ -62,7 +59,6 @@ Route::get('/centreformationList', function () {
 Route::resource('FormationExterne', FormationExterneController::class);
 Route::resource('FormationInterne', FormationInterneController::class);
 Route::resource('CentreFormation', CentreFormationController::class);
-
 Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
 });
@@ -72,12 +68,14 @@ Route::group(['prefix' => 'tags' ,'as' => 'tags.' ],function () {
 Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
 });
+Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
+    Route::get('/', [ClubController::class, 'index'])->name('clubsList');
+    Route::post('/', [ClubController::class, 'store'])->name('ajouter');
+});
 
 Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
-
-
 
 
 
