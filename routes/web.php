@@ -67,6 +67,12 @@ Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
 });
 
+Route::resource('cours', CoursController::class);
+Route::resource('module', ModuleController::class);
+Route::resource('classe', ClasseController::class);
+
+
+
 
 
 

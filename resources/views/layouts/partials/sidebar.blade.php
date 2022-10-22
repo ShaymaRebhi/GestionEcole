@@ -73,14 +73,33 @@
                     <span class="nav-link-text ms-1">Events</span>
                 </a>
             </li>
+
+
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('moduleList') }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1"> Modules</span>
-                </a>
-            </li>
+                                       <a class="nav-link " href="{{ route('cours.index') }}">
+                                           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                               <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+                                           </div>
+                                           <span class="nav-link-text ms-1">Cours</span>
+                                       </a>
+                        </li>
+                        <li class="nav-item">
+                                        <a class="nav-link " href="{{ route('module.index') }}">
+                                            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+                                            </div>
+                                            <span class="nav-link-text ms-1"> Modules</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                                                 <a class="nav-link " href="{{ route('classe.index') }}">
+                                                                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                                                         <i class="ni ni-book-bookmark text-info text-sm opacity-10"></i>
+                                                                     </div>
+                                                                     <span class="nav-link-text ms-1"> Classe</span>
+                                                                 </a>
+                                                             </li>
+
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('FormationExterne.index') }}">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
