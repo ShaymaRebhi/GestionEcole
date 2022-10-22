@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Components\Modules\ModuleController;
@@ -79,12 +80,12 @@ Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
 
-
-
-
-
-
-
+Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
+    Route::get('/', [ClubController::class, 'index'])->name('clubsList');
+    Route::get('/{id}', [ClubController::class, 'show'])->name('details');
+    Route::post('/', [ClubController::class, 'store'])->name('ajouter');
+    Route::put('/', [ClubController::class, 'update'])->name('modifier');
+});
 
 Route::middleware([
     'auth:sanctum',
