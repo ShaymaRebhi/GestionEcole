@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('taggables', function (Blueprint $table) {
+        Schema::create('post_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tag_id')->constrained('tags')->onUpdate('cascade');
             $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');

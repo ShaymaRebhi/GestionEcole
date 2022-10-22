@@ -33,7 +33,9 @@ class TagShow extends Component
     {
         $validatedData = $this->validate();
 
-        Tag::create(['name'=>$validatedData['name'], 'slug'  => Str::slug($validatedData['name'])]);
+        Tag::create([
+            'name'=>$validatedData['name'],
+            'slug'  => Str::slug($validatedData['name'])]);
         session()->flash('message','Tag Added Successfully');
         //$this->resetInput();
         $this->dispatchBrowserEvent('close-modal');

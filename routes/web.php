@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,36 @@ Route::get('/tables', function () {
     return view('layouts.tables');
 })->name('tables');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Categories
 Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
@@ -33,5 +64,11 @@ Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
 Route::group(['prefix' => 'tags' ,'as' => 'tags.' ],function () {
     Route::get('/', [TagController::class, 'index'])->name('index');
 });
+Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+});
+
+
+
 
 

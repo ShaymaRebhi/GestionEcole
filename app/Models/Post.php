@@ -27,7 +27,6 @@ class Post extends Model
 
     protected $with = [
         'category',
-        'tagsRelation',
         'authorRelation',
     ];
     public function category():BelongsTo
