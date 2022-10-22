@@ -21,7 +21,6 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tables', function () {
     return view('layouts.tables');
