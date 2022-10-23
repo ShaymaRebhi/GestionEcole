@@ -12,7 +12,7 @@
 <head>
     <title>Laravel 9 Sweet Alert Confirm Delete Example - Nicesnippets.com</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-{{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">--}}
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/5.0.7/sweetalert2.min.css" rel="stylesheet">
 </head>
 <div class="card">
