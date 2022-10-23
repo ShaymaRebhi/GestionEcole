@@ -8501,5 +8501,6 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
+
     "plugin-api-version": "2.2.0"
 }

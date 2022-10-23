@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\EventController;
+
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Components\Modules\ModuleController;
@@ -37,13 +39,7 @@ Route::get('/coursList', function () {
     return view('Components.Cours.coursList');
 })->name('coursList');
 
-Route::get('/clubsList', function () {
-    return view('Components.Club.clubsList');
-})->name('clubsList');
 
-Route::get('/eventsList', function () {
-    return view('Components.Event.eventsList');
-})->name('eventsList');
 
 Route::get('/moduleList', function () {
     return view('Components.Module.moduleList');
@@ -76,6 +72,25 @@ Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
 });
 
+Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
+    Route::get('/', [ClubController::class, 'index'])->name('clubsList');
+    Route::get('/{id}', [ClubController::class, 'show'])->name('details');
+    Route::post('/add', [ClubController::class, 'store'])->name('ajouter');
+    Route::post('/', [ClubController::class, 'invite'])->name('inviter');
+    Route::get('/edit/{id}', [ClubController::class, 'edit'])->name('modifier');
+    Route::delete('/{id}', [ClubController::class, 'destroy'])->name('delete');
+});
+
+
+Route::group(['prefix' => 'events' ,'as' => 'events.' ],function () {
+    Route::get('/', [EventController::class, 'index'])->name('eventsList');
+    Route::get('/{id}', [EventController::class, 'show'])->name('details');
+    Route::post('/add', [EventController::class, 'store'])->name('ajouter');
+    Route::post('/inv', [EventController::class, 'invite'])->name('inviter');
+    Route::get('/edit/{id}', [EventController::class, 'edit'])->name('modifier');
+    Route::delete('/{id}', [EventController::class, 'destroy'])->name('delete');
+    
+});
 Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
