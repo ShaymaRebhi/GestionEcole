@@ -95,12 +95,7 @@ Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
 
-Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
-    Route::get('/', [ClubController::class, 'index'])->name('clubsList');
-    Route::get('/{id}', [ClubController::class, 'show'])->name('details');
-    Route::post('/', [ClubController::class, 'store'])->name('ajouter');
-    Route::put('/', [ClubController::class, 'update'])->name('modifier');
-});
+
 
 Route::middleware([
     'auth:sanctum',

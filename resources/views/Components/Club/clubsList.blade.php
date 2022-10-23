@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>La liste des clubs</h6>
+                        <h6>Les clubs</h6>
                     </div>
                     @csrf
                     <div class="col-md-4">
@@ -28,7 +28,11 @@
                                       </div>
                                       <label>Type</label>
                                       <div class="input-group mb-3">
-                                        <input name="type" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <select name="type" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+										<option value="charity">Charity</option>
+                                        <option value="IT">IT</option>
+                                        <option value="sports">Sports</option>
+                                        </select>	
                                       </div>
                                       <label>Date de création</label>
                                       <div class="input-group mb-3">

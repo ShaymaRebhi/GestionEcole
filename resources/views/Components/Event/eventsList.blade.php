@@ -64,23 +64,23 @@
                          @if($dateEvent > $dateToday)
                                 <span class="badge badge-dot me-4">
                                 <i class="bg-success"></i>
-                                <span class="text-dark text-xs">Expiré et Incomplet</span>
+                                <span class="text-dark text-xs">Encore des places</span>
                                 </span>
                          @elseif($dateEvent < $dateToday)
                          <span class="badge badge-dot me-4">
                                 <i class="bg-success"></i>
-                                <span class="text-dark text-xs">Encore des places</span>
+                                <span class="text-dark text-xs">Expiré et incomplet</span>
                                 </span>
                          @endif   
 
          @elseif($event->nbPersonnes == $event->nbPersonnesMax)
-             @if($dateEvent > $dateToday)
+             @if($dateEvent < $dateToday)
             <span class="badge badge-dot me-4">
               <i class="bg-info"></i>
               <span class="text-dark text-xs">Complet</span>
             </span>
             
-            @elseif($dateEvent < $dateToday)
+            @elseif($dateEvent > $dateToday)
             <span class="badge badge-dot me-4">
               <i class="bg-info"></i>
               <span class="text-dark text-xs">Expiré et Complet</span>
