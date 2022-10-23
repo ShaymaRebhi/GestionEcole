@@ -11,7 +11,7 @@
                             <div class="modal-content">
                               <div class="modal-body p-0">
                                 <div class="card card-plain">
-                                <div class="card-header pb-0 text-left">
+                                  <div class="card-header pb-0 text-left">
                                     <h3 class="font-weight-bolder text-info text-gradient">Modification d'un event</h3>
                                   </div>
                                   <div class="card-body">
@@ -51,14 +51,16 @@
 									  <button type="submit" class="btn btn-primary">Save</button>
                                       </div>
                                     </form>
-                                  </div>
+                                    </div>
             
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                </div>
             </div>
+          </div>
         </div>
-        
+      </div>
 </div>
+</div>
+</div>
+
+</div>
+
+@endsection
