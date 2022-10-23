@@ -15,8 +15,7 @@ use App\Http\Controllers\Components\Cours\CoursController;
 use App\Http\Controllers\Components\Formations\CentreFormationController;
 use App\Http\Controllers\Components\Formations\FormationExterneController;
 use App\Http\Controllers\Components\Formations\FormationInterneController;
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -88,7 +87,7 @@ Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
     Route::post('/add', [ClubController::class, 'store'])->name('ajouter');
     Route::get('/edit/{id}', [ClubController::class, 'edit'])->name('modifier');
     Route::post('/update/{id}', [ClubController::class, 'update'])->name('update');
-    Route::post('/', [ClubController::class, 'invite'])->name('inviter'); 
+    Route::post('/', [ClubController::class, 'invite'])->name('inviter');
     Route::delete('/{id}', [ClubController::class, 'destroy'])->name('delete');
 });
 
@@ -100,7 +99,7 @@ Route::group(['prefix' => 'events' ,'as' => 'events.' ],function () {
     Route::get('/edit/{id}', [EventController::class, 'edit'])->name('modifier');
     Route::post('/update/{id}', [EventController::class, 'update'])->name('update');
     Route::delete('/{id}', [EventController::class, 'destroy'])->name('delete');
-    
+
 });
 Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
