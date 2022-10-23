@@ -76,11 +76,11 @@ Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
     Route::get('/', [ClubController::class, 'index'])->name('clubsList');
     Route::get('/{id}', [ClubController::class, 'show'])->name('details');
     Route::post('/add', [ClubController::class, 'store'])->name('ajouter');
-    Route::post('/', [ClubController::class, 'invite'])->name('inviter');
     Route::get('/edit/{id}', [ClubController::class, 'edit'])->name('modifier');
+    Route::post('/update/{id}', [ClubController::class, 'update'])->name('update');
+    Route::post('/', [ClubController::class, 'invite'])->name('inviter'); 
     Route::delete('/{id}', [ClubController::class, 'destroy'])->name('delete');
 });
-
 
 Route::group(['prefix' => 'events' ,'as' => 'events.' ],function () {
     Route::get('/', [EventController::class, 'index'])->name('eventsList');
@@ -88,6 +88,7 @@ Route::group(['prefix' => 'events' ,'as' => 'events.' ],function () {
     Route::post('/add', [EventController::class, 'store'])->name('ajouter');
     Route::post('/inv', [EventController::class, 'invite'])->name('inviter');
     Route::get('/edit/{id}', [EventController::class, 'edit'])->name('modifier');
+    Route::post('/update/{id}', [EventController::class, 'update'])->name('update');
     Route::delete('/{id}', [EventController::class, 'destroy'])->name('delete');
     
 });

@@ -76,7 +76,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-       
+        $event = Event::find($id);
+      
+        return view('Components.Event.edit',compact('event'));
     }
 
     /**
@@ -88,7 +90,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($request->id);
+        //$input = $request->all();
+        $event = Event::find($id);
+        $event->update($request->all());
+
+        return redirect()->route('event.eventsList')->with('status', 'Event Updated Successfully'); 
     }
 
     /**

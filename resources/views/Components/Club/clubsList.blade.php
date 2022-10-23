@@ -29,7 +29,7 @@
                                       <label>Type</label>
                                       <div class="input-group mb-3">
                                         <select name="type" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
-										<option value="charity">Charity</option>
+										                    <option value="charity">Charity</option>
                                         <option value="IT">IT</option>
                                         <option value="sports">Sports</option>
                                         </select>	
@@ -99,14 +99,15 @@
                                     
                                     <td class="align-middle">
 
-                                       <a href="{{ route('clubs.details', $club->id) }}" class="btn btn-primary btn-sm">View</a>
-                                       <a href="{{ route('clubs.modifier', $club->id) }}" class="btn btn-warning btn-sm">Edit</a>      
+                                     <a href="{{ route('clubs.details', $club->id) }}" class="btn btn-primary btn-sm">View</a> 
+                                     <a href="{{ route('clubs.modifier', $club->id) }}" class="btn btn-warning btn-sm">Edit</a>      
                                        <form method="POST" action="{{ url('/clubs' . '/' . $club->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                          <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"> Delete</button>
-                                       </form>                                 
-
+                                       </form>  
+                                              
+                       
                                         </td>
                                  </tr>
                                 @endforeach
