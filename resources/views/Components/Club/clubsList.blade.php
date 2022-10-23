@@ -43,7 +43,7 @@
                                         <input name="description" type="textarea" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                                       </div>
                                       <div class="text-center">
-                                        <button type="submit" class="btn btn-primary" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Ajouter</button>
+                                      <button type="submit" class="btn btn-primary">Save</button>
                                       </div>
                                     </form>
                                   </div>
@@ -53,6 +53,7 @@
                             </div>
                           </div>
                         </div>
+                       
                       </div>
 
                     <div class="card-body px-0 pt-0 pb-2">
@@ -60,7 +61,6 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nom</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de création</th>
@@ -73,14 +73,6 @@
                                 <tbody>
                                 @foreach($clubs as $club)
                                 <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                       
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm"> {{ $club->id }}</h6>
-                                            </div>
-                                        </div>
-                                    </td>
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
@@ -102,11 +94,17 @@
                                     </td>
                                     
                                     <td class="align-middle">
-                                       <button class="btn btn-primary">Edit</button>
-                                       <button class="btn btn-primary">Delete</button>
-                                       <button class="btn btn-danger">Delete</button>
-                                    </td>
-                                </tr>
+
+                                       <a href="{{ route('clubs.details', $club->id) }}" class="btn btn-primary btn-sm">View</a>
+                                       <a href="{{ route('clubs.modifier', $club->id) }}" class="btn btn-warning btn-sm">Edit</a>      
+                                       <form method="POST" action="{{ url('/clubs' . '/' . $club->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                         <button type="submit" class="btn btn-danger btn-sm" title="Delete Contact" onclick="return confirm(&quot;Confirm delete?&quot;)"> Delete</button>
+                                       </form>                                 
+
+                                        </td>
+                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>

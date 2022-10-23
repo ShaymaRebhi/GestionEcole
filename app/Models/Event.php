@@ -21,7 +21,8 @@ class Event extends Model
         'time',
         'nbPersonnes',
         'nbPersonnesMax',
-        'lieu'
+        'lieu',
+        'club_id'
     ];
 
     public function club()
