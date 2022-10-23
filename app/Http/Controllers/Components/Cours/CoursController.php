@@ -18,6 +18,8 @@ class CoursController extends Controller
     public function index()
     {
         //
+
+
           $data = Cours::latest()->paginate(5);
 
                 return view('Components.Cours.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
@@ -68,6 +70,32 @@ class CoursController extends Controller
 
     }
 
+    // Enregistrer un nouveau Post
+            public function store1(Request $request) {
+                // 1. La validation
+                $this->validate($request, [
+                    'nom_cours' => 'bail|required|string|max:255',
+                    "image_cours" => 'bail|required|image|max:1024',
+
+                ]);
+
+                // 2. On upload l'image dans "/storage/app/public/posts"
+                $chemin_image = $request->image_cours->store("cours");
+
+                // 3. On enregistre les informations du Post
+                Cours::create([
+                    "nom_cours" => $request->nom_cours,
+                    "typeCours" => $request->typeCours,
+                    "image_cours" => $chemin_image,
+
+                ]);
+
+                // 4. On retourne vers tous les posts : route("posts.index")
+                return redirect(route("cours.index"));
+            }
+
+
+
     /**
      * Display the specified resource.
      *
@@ -105,7 +133,7 @@ class CoursController extends Controller
      * @param  \App\Models\Cours  $cours
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cours $cours)
     {
         //
           $request->validate([
@@ -113,31 +141,75 @@ class CoursController extends Controller
 
                               'image_cours'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
                           ]);
-$cours = Cours::find($request->hidden_id);
+
                 $image_cours = $request->hidden_image_cours;
 
                 if($request->image_cours != '')
                 {
                     $image_cours = time() . '.' . request()->image_cours->getClientOriginalExtension();
-
                     request()->image_cours->move(public_path('images'), $image_cours);
                 }
-
-
-
+                $cours = Cours::find($request->hidden_id);
                 $cours->nom_cours = $request->nom_cours;
-
                 $cours->typeCours = $request->typeCours;
-
                 $cours->image_cours = $image_cours;
                 $cours->modules_id= $request->modules_id;
-                $cours = Cours::find($id);
-                // $cours->save();
-                          $cours->update($request->all());
+              //  $cours = Cours::find($id);
+                 $cours->save();
+                         // $cours->update($request->all());
 
                 return redirect()->route('cours.index')->with('success', 'Cours Data has been updated successfully');
 
     }
+
+
+
+
+// Mettre à jour un Post
+    public function update1(Request $request, Cours $cours) {
+        // 1. La validation
+
+                // Les règles de validation pour "title" et "content"
+                $rules = [
+                    'nom_cours' => 'bail|required|string|max:255',
+
+                ];
+
+                // Si une nouvelle image est envoyée
+                if ($request->has("image_cours")) {
+                    // On ajoute la règle de validation pour "picture"
+                    $rules["image_cours"] = 'bail|required|image|max:1024';
+                }
+
+                $this->validate($request, $rules);
+
+                // 2. On upload l'image dans "/storage/app/public/posts"
+                if ($request->has("image_cours")) {
+
+                    //On supprime l'ancienne image
+                    Storage::delete($module->image_cours);
+
+                    $chemin_image = $request->image_cours->store("cours");
+                }
+                $cours->modules_id= $request->modules_id;
+                // 3. On met à jour les informations du Post
+                $module->update([
+                    "nom_cours" => $request->nom_cours,
+                    "typeCours" => $request->typeCours,
+                    "image_cours" => isset($chemin_image) ? $chemin_image : $cours->image_cours,
+
+                ]);
+
+
+
+
+                // 4. On affiche le Post modifié : route("posts.show")
+                return redirect(route("cours.show", $cours));
+            }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.

@@ -31,7 +31,37 @@
 				{{ $classe->option }}
 			</div>
 		</div>
-	</div>
+
+
+
+
+	<h5>Liste des participants de {{$classe->nom_classe }} :</h5>
+            @if(count($users) > 0)
+            <h6>nbre des etudiants : {{count($users)}} </h6>
+            <div class="row ">
+            @foreach($users as $row)
+
+
+
+            <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{ $row->name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted text-center"> <b>{{ $row->username }} </b></h6>
+         <span class="card-subtitle mb-2 text-muted"> <b>{{ $row->email }}</b></span>
+
+
+      </div>
+    </div>
+
+
+    @endforeach
+    @else
+
+                        <p colspan="5" class="text-center">No Data Found</p>
+
+                @endif
+
+
 </div>
 
 @endsection('content')
