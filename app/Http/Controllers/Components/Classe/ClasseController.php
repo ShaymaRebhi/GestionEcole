@@ -68,7 +68,8 @@ class ClasseController extends Controller
     {
         //
          $classe = Classe::find($id);
-                return view('Components.Classe.show', compact('classe'));
+         $users=$classe->users()->get();
+                return view('Components.Classe.show', compact('classe','users'));
     }
 
     /**

@@ -30,7 +30,7 @@
 			<div class="row mb-4">
 				<label class="col-sm-2 col-label-form">Image Module</label>
 				<div class="col-sm-10">
-					<input type="file" name="image_modules" />
+					<input type="file" name="image_modules" id="image_modules" />
 				</div>
 			</div>
 			<div class="text-center">
