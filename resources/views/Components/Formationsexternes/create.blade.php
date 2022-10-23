@@ -16,7 +16,17 @@
 @endif
 
 <div class="card">
-	<div class="card-header">Add Formation Externe</div>
+<div class="card-header">
+	
+	<div class="row">
+		<div class="col col-md-6"><b>Formation Externe </b></div>
+		<div class="col col-md-6">
+			<a href="{{ route('FormationExterne.index') }}" class="btn btn-primary btn-sm float-end">View All</a>
+		</div>
+	</div>
+
+
+Add Formation Externe</div>
 	<div class="card-body">
 		<form method="post" action="{{ route('FormationExterne.store') }}" enctype="multipart/form-data">
 			@csrf

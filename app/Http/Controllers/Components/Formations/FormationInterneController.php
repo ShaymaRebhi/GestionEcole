@@ -15,7 +15,12 @@ class FormationInterneController extends Controller
      */
     public function index()
     {
-        $data = FormationInterne::latest()->get();
+        if (request('search')) {
+            $data = FormationInterne::where('Nom', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $data = FormationInterne::latest()->get();
+        }
+        
 
         return view('Components.Formationsinternes.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -72,7 +77,8 @@ class FormationInterneController extends Controller
     public function show($id)
     {
         $formationInterne = FormationInterne::find($id);
-        return view('Components.Formationsinternes.show', compact('formationInterne'));
+        $users= $formationInterne->users()->get();
+        return view('Components.Formationsinternes.show', compact('formationInterne','users'));
     }
 
     /**

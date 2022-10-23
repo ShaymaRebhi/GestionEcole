@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\FormationInterne;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -59,4 +60,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function formationInternes()
+    {
+        return $this->belongsToMany(FormationInterne::class)->as('formationInternes');;
+    }
 }
