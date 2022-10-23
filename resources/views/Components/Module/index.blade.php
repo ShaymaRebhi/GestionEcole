@@ -37,8 +37,10 @@
 				@foreach($data as $row)
 
 					<tr>
-						<td><img src="{{ asset('images/' . $row->image_modules) }}" width="75" /></td>
+							<td><img src="{{ asset('storage/'.$row->image_modules) }}"  style="max-width: 300px;"></td>
+
 						<td>{{ $row->nom_modules }}</td>
+
 						<td>
 							<form method="post" action="{{ route('module.destroy', $row->id) }}">
 
