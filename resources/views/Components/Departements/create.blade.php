@@ -41,7 +41,7 @@
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Etage</label>
 				<div class="col-sm-10">
-					<input type="number" name="Etage" class="form-control" min="0" max="5"/>
+					<input type="number" name="Etage" class="form-control"/>
 				</div>
 			</div>
 
