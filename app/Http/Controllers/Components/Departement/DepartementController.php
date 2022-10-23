@@ -46,7 +46,7 @@ class DepartementController extends Controller
             'Nom'          =>  'required',
             'Chef_Departement'         =>  'required',
             'Bloc'         =>  'required',
-            'Etage'         =>  'required',
+            'Etage'         =>  'required|integer|between:0,5',
            
         ]);
 
@@ -111,7 +111,7 @@ class DepartementController extends Controller
             'Nom'          =>  'required',
             'Chef_Departement'         =>  'required',
             'Bloc'         =>  'required',
-            'Etage'         =>  'required',
+            'Etage'         =>  'required|integer|between:0,5',
    
         ]);
 
