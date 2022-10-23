@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('ObjectifGlobale');
             $table->date('DateDebut');
             $table->date('DateFin');
+            $table->enum('Lieux', ['Amphi A', 'Amphi B','Amphi C']);
             $table->timestamps();
         });
     }

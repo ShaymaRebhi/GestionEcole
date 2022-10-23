@@ -8,6 +8,15 @@ use App\Models\FormationExterne;
 class CentreFormation extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'NomCentreFormation',
+        'Formateur',
+        'Lieux',
+        'logo_centre',
+        'updated_at',
+        'created_at'
+    ];
+
     
    
 

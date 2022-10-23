@@ -16,7 +16,17 @@
 @endif
 
 <div class="card">
-	<div class="card-header">Add Formation Interne</div>
+<div class="card-header">
+	
+		<div class="row">
+			<div class="col col-md-6"><b>Formation Interne </b></div>
+			<div class="col col-md-6">
+				<a href="{{ route('FormationInterne.index') }}" class="btn btn-primary btn-sm float-end">View All</a>
+			</div>
+		</div>
+	
+	
+	Add Formation Interne</div>
 	<div class="card-body">
 		<form method="post" action="{{ route('FormationInterne.store') }}" enctype="multipart/form-data">
 			@csrf
@@ -50,6 +60,16 @@
 				<label class="col-sm-2 col-label-form">DateFin</label>
 				<div class="col-sm-10">
 					<input type="date" name="DateFin" class="form-control" />
+				</div>
+			</div>
+			<div class="row mb-4">
+				<label class="col-sm-2 col-label-form">Lieux</label>
+				<div class="col-sm-10">
+					<select name="Lieux" class="form-control">
+						<option value="Amphi A">Amphi A</option>
+						<option value="Amphi B">Amphi B</option>
+						<option value="Amphi C">Amphi C</option>
+					</select>
 				</div>
 			</div>
 			

@@ -19,20 +19,35 @@
 				<a href="{{ route('CentreFormation.create') }}" class="btn btn-success btn-sm float-end">Add</a>
 			</div>
 		</div>
+		
+	
 	</div>
 	<div class="card-body">
+	<div class="row">
+    <!-- Search input -->
+    <form>
+        <input type="search"
+    class="form-control"
+    placeholder="Find user here"
+    name="search"
+    value="{{ request('search') }}">
+    </form>
+</div>
+<hr/>
 		<table class="table table-bordered">
 			<tr>
+				<th>Logo</th>
 				<th>NomCentreFormation</th>
 				<th>Formateur</th>
 				<th>Lieux</th>
 			
 			</tr>
-			@if(count($data) > 0)
+			
 
-				@foreach($data as $row)
+			@forelse($data as $row)
 
 					<tr>
+					<td><img src="{{ asset('images/' . $row->logo_centre) }}" width="75" /></td>
                     <td>{{ $row->NomCentreFormation }}</td>
 						<td>{{ $row->Formateur }}</td>
 						<td>{{ $row->Lieux }}</td>
@@ -50,13 +65,11 @@
 						</td>
 					</tr>
 
-				@endforeach
-
-			@else
+					@empty
 				<tr>
 					<td colspan="5" class="text-center">No Data Found</td>
 				</tr>
-			@endif
+				@endforelse
 		</table>
 		
 	</div>

@@ -19,15 +19,18 @@
 	<div class="card-header">
 		<div class="row">
 			<div class="col col-md-6"><b>Cours Data</b></div>
+
 			<div class="col col-md-6">
 				<a href="{{ route('cours.create') }}" class="btn btn-success btn-sm float-end">Add</a>
 			</div>
 		</div>
 	</div>
 	<div class="card-body">
+
 		<table class="table table-bordered">
 			<tr>
 				<th>Image</th>
+
 				<th>Nom</th>
                 <th>Type cours</th>
 				<th>Action</th>
@@ -37,7 +40,9 @@
 				@foreach($data as $row)
 
 					<tr>
+
 						<td><img src="{{ asset('images/' . $row->image_cours) }}" width="75" /></td>
+
 						<td>{{ $row->nom_cours }}</td>
 
 						<td>{{ $row->typeCours }}</td>
@@ -49,7 +54,7 @@
 								<a href="{{ route('cours.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
 								@method('DELETE')
                                 @csrf
-								<input type="submit"  class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete' />
+								<input type="submit"  class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" value="Delete" data-toggle="tooltip" title='Delete' />
 							</form>
 
 						</td>

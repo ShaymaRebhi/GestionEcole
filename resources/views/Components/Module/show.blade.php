@@ -21,10 +21,23 @@
 		<div class="row mb-4">
 			<label class="col-sm-2 col-label-form"><b> Image module</b></label>
 			<div class="col-sm-10">
-				<img src="{{ asset('images/' .  $module->image_modules) }}" width="200" class="img-thumbnail" />
+
+
+	<img src="{{ asset('storage/'.$module->image_modules) }}" class="img-thumbnail" style="max-width: 300px;">
+
 			</div>
 		</div>
 	</div>
+@foreach ($cours as $courss)
+	<div class="row mb-3">
+
+    			<label class="col-sm-2 col-label-form"><b>Liste des cours</b></label>
+    			<div class="col-sm-10">
+    				{{$courss->nom_cours}}
+    			</div>
+
+    		</div>
+    		  @endforeach
 </div>
 
 @endsection('content')

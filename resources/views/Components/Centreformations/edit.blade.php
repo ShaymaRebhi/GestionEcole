@@ -39,6 +39,17 @@
 			</div>
           
 			
+			<div class="row mb-4">
+				<label class="col-sm-2 col-label-form">Logo Centre</label>
+				<div class="col-sm-10">
+					<input type="file" name="logo_centre" />
+					<br />
+					<img src="{{ asset('images/' . $centreFormation->logo_centre) }}" width="100" class="img-thumbnail" />
+					<input type="hidden" name="hidden_logo_centre" value="{{ $centreFormation->logo_centre }}" />
+				</div>
+			</div>
+
+
 			<div class="text-center">
 				<input type="hidden" name="hidden_id" value="{{ $centreFormation->id }}" />
 				<input type="submit" class="btn btn-primary" value="Edit" />

@@ -19,8 +19,9 @@
 				<div class="col-sm-10">
 					<input type="file" name="image_modules" />
 					<br />
-					<img src="{{ asset('images/' . $module->image_modules) }}" width="100" class="img-thumbnail" />
+					<img src="{{ asset('storage/' . $module->image_modules) }}" width="100" class="img-thumbnail" />
 					<input type="hidden" name="hidden_image_modules" value="{{ $module->image_modules }}" />
+
 				</div>
 			</div>
 			<div class="text-center">

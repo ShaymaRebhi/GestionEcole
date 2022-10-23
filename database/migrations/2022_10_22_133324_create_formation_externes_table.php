@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('formation_externes', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+         //   $table->engine = 'InnoDB';
             $table->id();
             $table->string('Nom');
             $table->integer('Duree');

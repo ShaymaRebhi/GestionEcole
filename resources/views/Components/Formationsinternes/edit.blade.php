@@ -49,6 +49,17 @@
 					<input type="text" name="DateFin" class="form-control" value="{{ $formationInterne->DateFin }}" />
 				</div>
 			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-label-form"> Lieux </label>
+				<div class="col-sm-10">
+			<select class="form-select" aria-label="Default select example" name="Lieux">
+					<option value="{{ $formationInterne->Lieux}}" selected>{{ $formationInterne->Lieux }}</option>
+						<option value="Amphi A">Amphi A</option>
+						<option value="Amphi B">Amphi B</option>
+						<option value="Amphi C">Amphi C</option>
+					</select>
+				</div>
+			</div>
 			
 			<div class="text-center">
 				<input type="hidden" name="hidden_id" value="{{ $formationInterne->id }}" />
