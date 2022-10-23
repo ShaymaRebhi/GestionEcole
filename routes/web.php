@@ -3,14 +3,14 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\ClubController;
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Components\Modules\ModuleController;
-use App\Http\Controllers\Components\Cours\CoursController;
 use App\Http\Controllers\Components\Classe\ClasseController;
+use App\Http\Controllers\Components\Cours\CoursController;
+use App\Http\Controllers\Components\Formations\CentreFormationController;
 use App\Http\Controllers\Components\Formations\FormationExterneController;
 use App\Http\Controllers\Components\Formations\FormationInterneController;
-use App\Http\Controllers\Components\Formations\CentreFormationController;
+use App\Http\Controllers\Components\Modules\ModuleController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +74,12 @@ Route::group(['prefix' => 'tags' ,'as' => 'tags.' ],function () {
 });
 Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::get('create', [PostController::class, 'create'])->name('create');
+    Route::post('/', [PostController::class, 'store'])->name('store');
+    Route::get('{post:slug}/edit', [PostController::class, 'edit'])->name('edit');
+    Route::get('{post:slug}', [PostController::class, 'update'])->name('update');
+    Route::get('/{category:slug}/{post:slug}', [PostController::class, 'show'])->name('show');
+
 });
 
 Route::resource('cours', CoursController::class);

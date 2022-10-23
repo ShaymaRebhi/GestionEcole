@@ -37,5 +37,30 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class)->as('tags');
     }
+    public function syncTags(array $tags)
+    {
+        $this->save();
+        $this->tags()->sync($tags);
+        $this->unsetRelation('tagsRelation');
+    }
+    public function id(): int
+    {
+        return $this->id;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
+    }
+
+    public function body(): string
+    {
+        return $this->body;
+    }
+
+    public function slug(): string
+    {
+        return $this->slug;
+    }
 
 }
