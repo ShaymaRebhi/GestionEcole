@@ -33,6 +33,7 @@
                                   <div class="card-body">
                                     <form method="post" action="{{ route('events.inviter') }}" role="form text-left">
                                     {!! csrf_field() !!}
+                                    
 									                 <input hidden=true name="event_id" type="text" value="{{$event->id}}" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">
                                       <label>Email</label>
                                       <div class="input-group mb-3">

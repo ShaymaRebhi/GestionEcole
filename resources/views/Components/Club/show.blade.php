@@ -2,46 +2,40 @@
 
 @section('content')
 
-<div class="card">
-	<div class="card-header">
-		<div class="row">
-			<div class="col col-md-6"><b>Détails du club</b></div>
-			<div class="col col-md-6">
-				<a href="{{ route('clubs.clubsList') }}" class="btn btn-primary btn-sm float-end">View All</a>
-			</div>
-		</div>
-	</div>
-	<div class="card-body">
-		<div class="row mb-3">
-			<label class="col-sm-2 col-label-form"><b>Nom du club</b></label>
-			<div class="col-sm-10">
-				{{ $club->nom }}
-			</div>
-		</div>
+<div style="margin-left: 50px" class="card card-blog card-plain">
+  <div class="position-relative">
+    <a class="d-block blur-shadow-image">
+      <img src="https://www.fm-magazine.com/content/dam/cgma/magazine/news/publishingimages/cgma-5-steps-to-better-organization-510-x-221.jpg.transform/767w/image.png" height="250px" width="90%" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+    </a>
+  </div>
+  <div style="position: center;" class="card-body px-0 pt-4">
+    <p class="text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase">Détails du club</p>
+    <a href="javascript:;">
+      <h4>
+        {{$club->nom}}
+      </h4>
+    </a>
+    <p>
+       Description : {{$club->description}}
+    </p>
+	<p>
+       Nombre de membres : {{$club->nbPersonnes}}
+    </p>
+	<p>
+       Type : {{$club->type}}
+    </p>
+	<p>
+       Date de création : {{$club->dateCreation}}
+    </p>
+    <button type="button" class="btn bg-gradient-primary mt-3">Read more</button>
+  </div>
 
-		<div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Type</b></label>
-			<div class="col-sm-10">
-				{{ $club->type }}
-			</div>
-		</div>
-
-		<div class="row mb-4">
-        			<label class="col-sm-2 col-label-form"><b>Nombre de personnes</b></label>
-        			<div class="col-sm-10">
-        				{{ $club->nbPersonnes }}
-        			</div>
-        		</div>
-
-		<div class="row mb-4">
-			
-		</div>
-	</div>
-    <div class="card-header">
+</div>
+    <div style="margin-left: 50px" class="card-header">
 		<div class="row">
 			<div class="col col-md-6"><b>Les membres de ce club</b></div>
 			<div class="col col-md-6">
-			    <button type="button"  class="btn btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modal-form-members">Ajouter</button>
+			    <button type="button" style="margin-left: 50px" class="btn btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modal-form-members">Ajouter</button>
                         <div wire:ignore.self class="modal fade" id="modal-form-members" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                             <div class="modal-content">
@@ -91,7 +85,8 @@
 				</tr>
 			@endif
   </div>
-    <div class="card-header">
+  <br/>
+    <div style="margin-left: 50px" class="card-header">
 		<div class="row">
 			<div class="col col-md-6"><b>Les évenements de ce club</b></div>
 			<div class="col col-md-6">
@@ -108,7 +103,7 @@
                                   <div class="card-body">
                                     <form method="post" action="{{ route('events.ajouter') }}" role="form text-left">
                                     {!! csrf_field() !!}
-									<input name="club_id" type="text" value="{{$club->id}}" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">
+									<input hidden=true name="club_id" type="text" value="{{$club->id}}" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">
                                       <label>Nom</label>
                                       <div class="input-group mb-3">
                                         <input name="nom" type="text" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">

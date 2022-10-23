@@ -63,7 +63,8 @@ class ClubController extends Controller
     {
         $club = Club::find($id);
         $events = Event::where('club_id', $id)->get();
-        return view('Components.Club.show', compact('club','events')); 
+        $users= $club->users()->get();
+        return view('Components.Club.show', compact('club','events','users')); 
         
     }
 
