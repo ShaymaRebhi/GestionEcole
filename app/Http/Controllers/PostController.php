@@ -2,78 +2,72 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
+use App\Jobs\CreatePost;
+use App\Jobs\UpdatePost;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Livewire\WithPagination;
+use App\Models\User;
+
+
 class PostController extends Controller
 {
-
-    use WithPagination;
-
-    protected $paginationTheme = 'bootstrap';
-    public function index()
-    {
-
-        $posts = Post::with(['tags'])->latest()->paginate(10);
-        return view('module.posts.index', [
-            'posts' => Post::orderBy('id', 'desc')->paginate(5),
-        ]);
-    }
-
 
     public function create()
     {
         $tags = Tag::all();
-        return view('module.posts.index', compact('tags'),[
-            'categories'    => Category::all(),
-        ]);
+        return view('module.posts.create',compact('tags'), [ 'categories'    => Category::all()]);
     }
 
-
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
-
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'body' => 'required'
-        ]);
-        $post = Post::create([
-            'title' => $request->title,
-            'slug' => Str::slug($request->slug),
-            'description' => $request->description,
-        ]);
-
-        if ($request->has('tags')) {
-            $post->tags()->attach($request->tags);
-        }
-        return redirect()->route('posts.index')->with('status', 'Post Created Successfully');
+        $this->dispatchSync(CreatePost::fromRequest($request));
+        return redirect()->route('posts.index')->with('success', 'Post created!');
 
     }
 
-    public function show(Post $post)
+    public function show(Category $category, Post $post)
     {
-
+        $id=$post->author_id;
+        $user= User::find($id);
+        return view('module.posts.show', compact('post', 'category' , 'user'));
     }
 
 
     public function edit(Post $post)
     {
-        //
+//        $this->authorize(PostPolicy::UPDATE, $post);
+
+        $oldTags = $post->tags()->pluck('tag_id')->toArray();
+        $selectedCategory = $post->category;
+
+        return view('module.posts.edit', [
+            'post'            => $post,
+            'tags'              => Tag::all(),
+            'oldTags'           => $oldTags,
+            'categories'        => Category::all(),
+            'selectedCategory'  => $selectedCategory,
+        ]);
     }
 
 
-    public function update(Request $request, Post $post)
+    public function update(PostStoreRequest $request, Post $post)
     {
-        //
-    }
+//        $this->authorize(PostPolicy::UPDATE, $post);
 
+        $this->dispatchSync(UpdatePost::fromRequest($post, $request));
+
+        return redirect()->route('posts.index')->with('success', 'Post Updated!');
+    }
 
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function index()
+    {
+        return view('module.posts.index');
     }
 }

@@ -17,11 +17,13 @@ class UserTableSeeder extends Seeder
     {
         User::factory()->create([
             'name'      => 'Admin',
+            'username'      => 'Admin',
             'email'     => 'admin@example.com',
             'password'  => bcrypt('password'),
         ]);
         User::factory()->create([
             'name'      => 'shayma',
+            'username'      => 'shayma',
             'email'     => 'shayma@gmail.com',
             'password'  => bcrypt('esprit'),
         ]);
