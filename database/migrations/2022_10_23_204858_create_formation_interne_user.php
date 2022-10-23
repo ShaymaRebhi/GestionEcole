@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('centre_formations', function (Blueprint $table) {
+        Schema::create('formation_interne_user', function (Blueprint $table) {
             $table->id();
-            $table->string('NomCentreFormation');
-            $table->string('Formateur');
-            $table->string('Lieux');
-            $table->string('logo_centre');
-
+            $table->foreignId('user_id')->constrained("users")->onDelete('cascade');
+            $table->foreignId('formation_interne_id')->constrained("formation_internes")->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('centre_formations');
+        Schema::dropIfExists('formation_interne_user');
     }
 };

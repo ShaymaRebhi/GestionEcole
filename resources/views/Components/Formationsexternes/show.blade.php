@@ -12,37 +12,38 @@
 		</div>
 	</div>
 	<div class="card-body">
-		<div class="row mb-3">
-			<label class="col-sm-2 col-label-form"><b> Nom</b></label>
-			<div class="col-sm-10">
+	<div class="row justify-content-around">
+			<label class="col-3"><b> Nom</b></label>
+			<div class="col-6">
 				{{ $formationExterne->Nom }}
 			</div>
 		</div>
-		<div class="row mb-3">
-			<label class="col-sm-2 col-label-form"><b>ObjectifGlobale</b></label>
-			<div class="col-sm-10">
+		<div class="row justify-content-around">
+			<label class="col-3"><b>ObjectifGlobale</b></label>
+			<div class="col-6">
 				{{ $formationExterne->ObjectifGlobale }}
 			</div>
 		</div>
-		<div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Duree</b></label>
-			<div class="col-sm-10">
+		<div class="row justify-content-around">
+			<label class="col-3"><b>Duree</b></label>
+			<div class="col-6">
 				{{ $formationExterne->Duree }}
 			</div>
 		</div>
-		<div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Date Debut</b></label>
-			<div class="col-sm-10">
+		<div class="row justify-content-around">
+			<label class="col-3"><b>Date Debut</b></label>
+			<div class="col-6">
             {{ $formationExterne->DateDebut }}			</div>
 		</div>
-        <div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Date Fin</b></label>
-			<div class="col-sm-10">
+        <div class="row justify-content-around">
+			<label class="col-3"><b>Date Fin</b></label>
+			<div class="col-6">
             {{ $formationExterne->DateFin }}			</div>
 		</div>
-		<div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Centre Formation</b></label>
-			<div class="col-sm-10">
+	
+		<div class="row justify-content-around">
+			<label class="col-3"><b>Centre Formation</b></label>
+			<div class="col-6">
             {{ $centre->NomCentreFormation }}			</div>
 		</div>
 	</div>

@@ -54,7 +54,7 @@
 				<label class="col-sm-2 col-label-form"> Centre Formation</label>
 				<div class="col-sm-10">
 			<select class="form-select" aria-label="Default select example" name="centre_formations_id">
-					<option selected>{{ $centre->NomCentreFormation }}</option>
+					<option value="{{ $formationExterne->centre_formations_id}}" selected>{{ $centre->NomCentreFormation }}</option>
 					@if(count($data1) > 0)
 
 				@foreach($data1 as $row)

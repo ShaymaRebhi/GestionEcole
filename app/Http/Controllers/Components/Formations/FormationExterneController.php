@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class FormationExterneController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +17,15 @@ class FormationExterneController extends Controller
      */
     public function index()
     {
-        $data = FormationExterne::latest()->get();
-        
 
+
+        if (request('search')) {
+            $data = FormationExterne::where('Nom', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $data = FormationExterne::latest()->get();
+        }
+    
+        
         return view('Components.Formationsexternes.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
   
     }
