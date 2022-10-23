@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\EventController;
+
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Components\Modules\ModuleController;
 use App\Http\Controllers\Components\Cours\CoursController;
@@ -28,6 +29,8 @@ Route::get('/', function () {
 });
 
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tables', function () {
     return view('layouts.tables');
@@ -35,6 +38,7 @@ Route::get('/tables', function () {
 Route::get('/coursList', function () {
     return view('Components.Cours.coursList');
 })->name('coursList');
+
 
 
 Route::get('/moduleList', function () {
@@ -57,6 +61,7 @@ Route::get('/centreformationList', function () {
 Route::resource('FormationExterne', FormationExterneController::class);
 Route::resource('FormationInterne', FormationInterneController::class);
 Route::resource('CentreFormation', CentreFormationController::class);
+
 Route::group(['prefix' => 'categories' ,'as' => 'categories.' ],function () {
     Route::get('/', [CategoryController::class, 'index'])->name('index');
 });
@@ -66,6 +71,7 @@ Route::group(['prefix' => 'tags' ,'as' => 'tags.' ],function () {
 Route::group(['prefix' => 'posts' ,'as' => 'posts.' ],function () {
     Route::get('/', [PostController::class, 'index'])->name('index');
 });
+
 Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
     Route::get('/', [ClubController::class, 'index'])->name('clubsList');
     Route::get('/{id}', [ClubController::class, 'show'])->name('details');
@@ -74,6 +80,7 @@ Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
     Route::get('/edit/{id}', [ClubController::class, 'edit'])->name('modifier');
     Route::delete('/{id}', [ClubController::class, 'destroy'])->name('delete');
 });
+
 
 Route::group(['prefix' => 'events' ,'as' => 'events.' ],function () {
     Route::get('/', [EventController::class, 'index'])->name('eventsList');
@@ -88,7 +95,19 @@ Route::resource('cours', CoursController::class);
 Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
 
+Route::group(['prefix' => 'clubs' ,'as' => 'clubs.' ],function () {
+    Route::get('/', [ClubController::class, 'index'])->name('clubsList');
+    Route::get('/{id}', [ClubController::class, 'show'])->name('details');
+    Route::post('/', [ClubController::class, 'store'])->name('ajouter');
+    Route::put('/', [ClubController::class, 'update'])->name('modifier');
+});
 
-
-
-
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

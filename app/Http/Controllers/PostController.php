@@ -7,15 +7,20 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 class PostController extends Controller
 {
 
+    use WithPagination;
 
+    protected $paginationTheme = 'bootstrap';
     public function index()
     {
 
         $posts = Post::with(['tags'])->latest()->paginate(10);
-        return view('module.posts.index', compact('posts'));
+        return view('module.posts.index', [
+            'posts' => Post::orderBy('id', 'desc')->paginate(5),
+        ]);
     }
 
 
