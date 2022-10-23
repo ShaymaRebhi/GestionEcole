@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Club;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class ClubController extends Controller
 {
@@ -90,11 +91,18 @@ class ClubController extends Controller
         
     }
     
+      /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
     public function edit($id)
     {
-        $clubToEdit = Club::find($id);
-        
-        return view('Components.Club.edit', compact('clubToEdit'));
+       $clubToEdit = Club::find($id);
+       // log::info("helloooo");
+        return view('Components.Club.edit',compact('clubToEdit'));
     }
 
     /**
@@ -106,9 +114,12 @@ class ClubController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $club = Club::find($request->id);
+        //$input = $request->all();
+        $club->type= $request->type;
         $club = Club::find($id);
-        $input = $request->all();
-        $club->update($input);
+        $club->update($request->all());
+
         return redirect()->route('clubs.clubsList')->with('status', 'Club Updated Successfully');        
     }
 

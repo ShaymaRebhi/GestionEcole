@@ -96,7 +96,7 @@
           <td>
           <td class="align-middle">
            <a href="{{ route('events.details', $event->id) }}" class="btn btn-primary btn-sm">View</a>
-           <a href="{{ route('events.details', $event->id) }}" class="btn btn-warning btn-sm">Edit</a> 
+           <a href="{{ route('events.modifier', $event->id) }}" class="btn btn-warning btn-sm">Edit</a> 
            <form method="POST" action="{{ url('/events' . '/' . $event->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
