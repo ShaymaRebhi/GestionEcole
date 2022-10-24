@@ -13,7 +13,11 @@ class ClubController extends Controller
    
     public function index()
     {
-      $clubs= Club::all();
+        if (request('search')) {
+            $clubs= Club::where('Nom', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $clubs= Club::all();
+        }
       return view('Components.Club.clubsList',['clubs'=>$clubs]);
       
     }

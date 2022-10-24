@@ -16,7 +16,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events= Event::all();
+        if (request('search')) {
+            $events= Event::where('Nom', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $events= Event::all();
+        }
         return view('Components.Event.eventsList',['events'=>$events]);
     }
 
@@ -91,11 +95,11 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $event = Event::find($request->id);
-        //$input = $request->all();
+        $event->type= $request->type;
         $event = Event::find($id);
         $event->update($request->all());
 
-        return redirect()->route('event.eventsList')->with('status', 'Event Updated Successfully'); 
+        return redirect()->route('events.eventsList')->with('status', 'Event Updated Successfully'); 
     }
 
     /**
