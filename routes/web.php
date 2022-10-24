@@ -15,7 +15,8 @@ use App\Http\Controllers\Components\Cours\CoursController;
 use App\Http\Controllers\Components\Formations\CentreFormationController;
 use App\Http\Controllers\Components\Formations\FormationExterneController;
 use App\Http\Controllers\Components\Formations\FormationInterneController;
-
+use App\Http\Controllers\Components\Departement\DepartementController;
+use App\Http\Controllers\Components\Etablissement\EtablissementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,8 @@ Route::resource('module', ModuleController::class);
 Route::resource('classe', ClasseController::class);
 
 
+Route::resource('Etablissement', EtablissementController::class);
+Route::resource('Departement', DepartementController::class);
 
 Route::middleware([
     'auth:sanctum',
