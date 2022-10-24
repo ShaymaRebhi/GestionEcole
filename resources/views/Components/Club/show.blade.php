@@ -1,7 +1,19 @@
 @extends('home')
 
 @section('content')
+@if($errors->any())
 
+<div class="alert alert-danger">
+	<ul>
+	@foreach($errors->all() as $error)
+
+		<li>{{ $error }}</li>
+
+	@endforeach
+	</ul>
+</div>
+
+@endif
 <div style="margin-left: 50px" class="card card-blog card-plain">
   <div class="position-relative">
     <a class="d-block blur-shadow-image">
@@ -109,6 +121,11 @@
                                       <div class="input-group mb-3">
                                         <input name="nom" type="text" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">
                                       </div>
+                                      @error('type')
+                                        <div class="alert alert-danger">
+                                         {{ $message}}
+                                         </div>
+                                         @enderror
                                       <label>Type</label>
                                       <div class="input-group mb-3">
                                         <select name="type" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">

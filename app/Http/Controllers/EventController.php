@@ -45,6 +45,16 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'type' => 'required',
+            'nbPersonnes' => 'required|integer|max:50',
+            'nbPersonnesMax' => 'required|integer',
+            'date' => 'required',
+            'time' => 'required',
+            'lieu' => 'required'
+
+        ]);
          
         $event= Event::create([
             'nom' => $request->nom,
@@ -97,6 +107,16 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'type' => 'required',
+            'nbPersonnes' => 'required|integer|max:50',
+            'nbPersonnesMax' => 'required|integer',
+            'date' => 'required',
+            'time' => 'required',
+            'lieu' => 'required'
+
+        ]);
         $event = Event::find($request->id);
         $event->type= $request->type;
         $event = Event::find($id);

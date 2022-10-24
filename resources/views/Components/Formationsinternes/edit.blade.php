@@ -25,30 +25,50 @@
 					<input type="text" name="Nom" class="form-control" value="{{ $formationInterne->Nom }}" />
 				</div>
 			</div>
+			@error('Nom')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Objectif Globale</label>
 				<div class="col-sm-10">
 					<input type="text" name="ObjectifGlobale" class="form-control" value="{{ $formationInterne->ObjectifGlobale }}" />
 				</div>
 			</div>
+			@error('ObjectifGlobale')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Duree</label>
 				<div class="col-sm-10">
 					<input type="number" name="Duree" class="form-control" value="{{ $formationInterne->Duree }}" />
 				</div>
 			</div>
+			@error('Duree')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Date Debut</label>
 				<div class="col-sm-10">
 					<input type="date" name="DateDebut" class="form-control" value="{{ $formationInterne->DateDebut }}" />
 				</div>
 			</div>
+			@error('DateDebut')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Date Fin</label>
 				<div class="col-sm-10">
 					<input type="text" name="DateFin" class="form-control" value="{{ $formationInterne->DateFin }}" />
 				</div>
 			</div>
+			@error('DateFin')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form"> Lieux </label>
 				<div class="col-sm-10">

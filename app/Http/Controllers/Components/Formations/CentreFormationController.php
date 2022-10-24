@@ -54,9 +54,9 @@ class CentreFormationController extends Controller
     {
        
         $request->validate([
-            'NomCentreFormation'          =>  'required',
-            'Formateur'         =>  'required',
-            'Lieux'         =>  'required',
+            'NomCentreFormation'          =>  'required | max:300 | min:3',
+            'Formateur'         =>  'required| max:300 | min:3',
+            'Lieux'         =>  'required| max:300 | min:3',
             'logo_centre'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
              
            
@@ -120,9 +120,9 @@ class CentreFormationController extends Controller
     public function update(Request $request, CentreFormation $centreFormation)
     {
         $request->validate([
-            'NomCentreFormation'          =>  'required',
-            'Formateur'         =>  'required',
-            'Lieux'         =>  'required',
+            'NomCentreFormation'          =>  'required| max:300 | min:3',
+            'Formateur'         =>  'required| max:300 | min:3',
+            'Lieux'         =>  'required| max:300 | min:3',
             'logo_centre'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
              
    
