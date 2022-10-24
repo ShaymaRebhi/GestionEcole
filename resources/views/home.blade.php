@@ -61,12 +61,12 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Les evenements</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Les événements</p>
                                     <h5 class="font-weight-bolder">
-                                        +3,462
+                                        {{$numberOfEvents}}
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                                        <span class="text-warning text-sm font-weight-bolder">Jusqu'à Aujourd'hui</span>
 
                                     </p>
                                 </div>
