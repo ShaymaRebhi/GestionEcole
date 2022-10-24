@@ -1,19 +1,7 @@
 @extends('home')
 @section('content')
 
-@if($errors->any())
 
-<div class="alert alert-danger">
-	<ul>
-	@foreach($errors->all() as $error)
-
-		<li>{{ $error }}</li>
-
-	@endforeach
-	</ul>
-</div>
-
-@endif
 
 <div class="card">
 <div class="card-header">
@@ -36,18 +24,30 @@ Add Formation Externe</div>
 					<input type="text" name="Nom" class="form-control" />
 				</div>
 			</div>
+			@error('Nom')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">ObjectifGlobale</label>
 				<div class="col-sm-10">
 					<input type="text" name="ObjectifGlobale" class="form-control" />
 				</div>
 			</div>
+			@error('ObjectifGlobale')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Duree</label>
 				<div class="col-sm-10">
 					<input type="number" name="Duree" class="form-control" />
 				</div>
 			</div>
+			@error('Duree')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
 			
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">DateDebut</label>
@@ -55,6 +55,10 @@ Add Formation Externe</div>
 					<input type="date" name="DateDebut" class="form-control" />
 				</div>
 			</div>
+			@error('DateDebut')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
 			
             <div class="row mb-3">
 				<label class="col-sm-2 col-label-form">DateFin</label>
@@ -62,6 +66,11 @@ Add Formation Externe</div>
 					<input type="date" name="DateFin" class="form-control" />
 				</div>
 			</div>
+			@error('DateFin')
+
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
+			
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Centre Formation</label>
 				<div class="col-sm-10">

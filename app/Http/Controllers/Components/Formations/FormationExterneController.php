@@ -50,9 +50,9 @@ class FormationExterneController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Nom'          =>  'required',
+            'Nom'          =>  'required| max:300 | min:3',
             'Duree'         =>  'required',
-            'ObjectifGlobale'         =>  'required',
+            'ObjectifGlobale'         =>  'required| max:300000 | min:3',
             'DateDebut'          =>  'required',
             'DateFin'          =>  'required',
 
@@ -115,9 +115,9 @@ class FormationExterneController extends Controller
     public function update(Request $request,  $id)
     {
         $request->validate([
-            'Nom'          =>  'required',
+            'Nom'          =>  'required| max:300 | min:3',
             'Duree'         =>  'required',
-            'ObjectifGlobale'         =>  'required',
+            'ObjectifGlobale'         =>  'required| max:30000 | min:3',
             'DateDebut'          =>  'required|date',
             'DateFin'          =>  'required|date',
         ]);
