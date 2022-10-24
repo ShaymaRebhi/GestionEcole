@@ -63,7 +63,10 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Les événements</p>
                                     <h5 class="font-weight-bolder">
-                                        12
+
+
+                                      12
+
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-warning text-sm font-weight-bolder">Jusqu'à Aujourd'hui</span>
