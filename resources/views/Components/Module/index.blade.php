@@ -25,6 +25,7 @@
 		</div>
 	</div>
 	<div class="card-body">
+
 		<table class="table table-bordered">
 			<tr>
 				<th>Image</th>
@@ -40,6 +41,7 @@
 							<td><img src="{{ asset('storage/'.$row->image_modules) }}"  style="max-width: 300px;"></td>
 
 						<td>{{ $row->nom_modules }}</td>
+
 
 						<td>
 							<form method="post" action="{{ route('module.destroy', $row->id) }}">
