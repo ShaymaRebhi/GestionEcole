@@ -16,9 +16,14 @@ class ClasseController extends Controller
     public function index()
     {
         //
-         $data = Classe::latest()->paginate(5);
 
-                        return view('Components.Classe.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        if (request('search')) {
+            $data = Classe::where('nom_classe', 'like', '%' . request('search') . '%')->paginate(5);
+        } else {
+            $data = Classe::latest()->paginate(5);
+        }
+          return view('Components.Classe.index', ['data' => $data]);
+
 
     }
 

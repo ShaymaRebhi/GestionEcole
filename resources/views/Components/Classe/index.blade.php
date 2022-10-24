@@ -25,6 +25,17 @@
 		</div>
 	</div>
 	<div class="card-body">
+	<div class="row">
+    <!-- Search input -->
+    <form>
+        <input type="search"
+    class="form-control"
+    placeholder="Find user here"
+    name="search"
+    value="{{ request('search') }}">
+    </form>
+</div>
+<hr/>
 		<table class="table table-bordered">
 			<tr>
 
@@ -33,9 +44,7 @@
                 <th>Option</th>
 				<th>Action</th>
 			</tr>
-			@if(count($data) > 0)
-
-				@foreach($data as $row)
+			@forelse($data as $row)
 
 					<tr>
 						<td>{{ $row->nom_classe }}</td>
@@ -56,13 +65,11 @@
 						</td>
 					</tr>
 
-				@endforeach
-
-			@else
+					@empty
 				<tr>
 					<td colspan="5" class="text-center">No Data Found</td>
 				</tr>
-			@endif
+				@endforelse
 		</table>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
