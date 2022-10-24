@@ -1,5 +1,18 @@
 @extends('layouts.mainlayout')
 @section('content')
+@if($errors->any())
+
+<div class="alert alert-danger">
+	<ul>
+	@foreach($errors->all() as $error)
+
+		<li>{{ $error }}</li>
+
+	@endforeach
+	</ul>
+</div>
+
+@endif
 <div class="container-fluid py-4">
 
         <div class="row">
@@ -33,7 +46,14 @@
                                       <label>Nom</label>
                                       <div class="input-group mb-3">
                                         <input name="nom" type="text" class="form-control" placeholder="..." aria-label="Email" aria-describedby="email-addon">
+                                      
                                       </div>
+
+                                        @error('nom')
+                                        
+                                         {{ $message}}
+                                        @enderror
+                                      
                                       <label>Type</label>
                                       <div class="input-group mb-3">
                                         <select name="type" type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
@@ -41,19 +61,46 @@
                                         <option value="IT">IT</option>
                                         <option value="sports">Sports</option>
                                         </select>	
+                                        @error('type')
+                                        <div class="alert alert-danger">
+                                         {{ $message}}
+                                         </div>
+                                         @enderror
                                       </div>
                                       <label>Date de création</label>
                                       <div class="input-group mb-3">
                                         <input name="dateCreation" type="date" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        
+                                        @error('dateCreation')
+                                        <div class="alert alert-danger">
+                                         {{$message}}
+                                         </div>
+                                        @enderror
+                                       
                                       </div>
                                       <label>Nombre de personnes</label>
                                       <div class="input-group mb-3">
                                         <input name="nbPersonnes" type="number" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        
+                                        @error('nbPersonnes')
+                                        <div class="alert alert-danger">
+                                         {{$message}}
+                                         </div>
+                                        @enderror
+                                        
                                       </div>
                                       <label>Description</label>
                                       <div class="input-group mb-3">
                                         <input name="description" type="textarea" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        
+                                        @error('description')
+                                        <div class="alert alert-danger">
+                                         {{$message}}
+                                         </div>
+                                        @enderror
+                                       
                                       </div>
+                                      
                                       <div class="text-center">
                                       <button type="submit" class="btn btn-primary">Save</button>
                                       </div>
