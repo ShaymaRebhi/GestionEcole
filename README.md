@@ -1,6 +1,23 @@
 # :student:Gestion ecole laravel App
 <div id="top" align="center">
-  
+   <img src="https://i.postimg.cc/R04ffVZN/312713313-485107070327871-51482485476274633-n.png" width="170" height="170"/>
+  <div id="badges">
+
+   <a href="https://github.com/ShaymaRebhi/GestionEcole/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge"/>
+  </a>
+
+  <a href="https://github.com/ShaymaRebhi/GestionEcole/issues">
+    <img src="https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge"/>
+  </a>
+
+  <a href="https://github.com/ShaymaRebhi/GestionEcole/stargazers">
+    <img src="https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge"/>
+  </a>
+   <a href="https://github.com/ShaymaRebhi/GestionEcole/network/members">
+      <img src="https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge"/>
+    </a>
+    </div>
 <h3 align="center">Velo Laravel App</h3>
   
   <p align="center">
