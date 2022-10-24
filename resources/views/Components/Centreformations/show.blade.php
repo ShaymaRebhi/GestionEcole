@@ -56,7 +56,7 @@
 
 		<h5>Liste des formations externe de {{$centreFormation->NomCentreFormation }} :</h5>
 		@if(count($formation) > 0)
-		<h6>nbre de formation : count($formation) </h6>
+		<h6>nbre de formation : {{count($formation)}} </h6>
 		<div class="row ">
 		@foreach($formation as $row)
 		
