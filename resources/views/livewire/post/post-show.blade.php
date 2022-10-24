@@ -54,9 +54,9 @@
                                 </div>
                                 <div class="col-md-4 op-7">
                                     <div class="row text-center op-7">
-                                        <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">141 Votes</span> </div>
-                                        <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
-                                        <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">290 Views</span> </div>
+                                        <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">0 Votes</span> </div>
+                                        <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">0 Replys</span> </div>
+                                        <div class="col px-1"> <i class="ion-ios-eye-outline icon-1x"></i> <span class="d-block text-sm">0 Views</span> </div>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                     <hr class="m-0">
                                     <div class="pos-relative px-3 py-3">
                                         <h6 class="text-primary text-sm">
-                                            <a href="#" class="text-primary">{{ $result->title }}</a>
+                                            <a href="{{ route('posts.show', [$result->category->slug(), $result->slug()]) }}" class="text-primary">{{ $result->title }}</a>
                                         </h6>
                                         <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$result->created_at->diffForHumans()}}</a> <span class="op-6"> </span> </p>
                                     </div>

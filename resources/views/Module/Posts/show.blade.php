@@ -73,7 +73,7 @@
                                 <hr class="m-0">
                                 <div class="pos-relative px-3 py-3">
                                     <h6 class="text-primary text-sm">
-                                        <a href="#" class="text-primary">{{ $result->title }}</a>
+                                        <a  class="text-primary" href="{{ route('posts.show', [$result->category->slug(), $result->slug()]) }}">{{ $result->title }}</a>
                                     </h6>
                                     <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$result->created_at->diffForHumans()}}</a> </p>
                                 </div>
