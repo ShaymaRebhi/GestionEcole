@@ -140,4 +140,11 @@ class FormationInterneController extends Controller
         return redirect()->route('FormationInterne.index')->with('success', 'Formation Data deleted successfully');
     
     }
+
+
+
+
+
+
+    
 }
