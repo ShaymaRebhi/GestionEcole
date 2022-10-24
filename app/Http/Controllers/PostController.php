@@ -31,7 +31,9 @@ class PostController extends Controller
     {
         $id=$post->author_id;
         $user= User::find($id);
-        return view('module.posts.show', compact('post', 'category' , 'user'));
+        $related = $post->relatedPostsByTag();
+        return view('module.posts.show', compact('post', 'category' , 'user','related'));
+
     }
 
 

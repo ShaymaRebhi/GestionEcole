@@ -43,6 +43,13 @@ class Post extends Model
         $this->tags()->sync($tags);
         $this->unsetRelation('tagsRelation');
     }
+    public function relatedPostsByTag()
+    {
+        return Post::whereHas('tags', function ($query) {
+            $tagIds = $this->tags()->pluck('tags.id')->all();
+            $query->whereIn('tags.id', $tagIds);
+        })->where('id', '<>', $this->id)->get();
+    }
     public function id(): int
     {
         return $this->id;

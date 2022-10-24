@@ -1,4 +1,5 @@
 <div>
+    @include('livewire.post.delete')
         <div class="container">
             <br>
             <div class="row">
@@ -20,13 +21,6 @@
                                     @endforeach
                                 </select>
                             </div>
-{{--                            <div class="col-3 text-end">--}}
-{{--                                <select wire:model="name" class="form-control text-sm" data-toggle="select" tabindex="-98">--}}
-{{--                                    @foreach ($tags as $tag)--}}
-{{--                                        <option value="{{ $tag->id() }}">{{ $tag->name() }}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
                     <br>
@@ -39,7 +33,7 @@
                                     <h5>
                                         <a href="#" class="text-primary">{{ $post->title }}</a>
                                     </h5>
-                                    <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$post->created_at->diffForHumans()}}</a> <span class="op-6"> by</span> <a class="text-black" href="#">KenyeW</a></p>
+                                    <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$post->created_at->diffForHumans()}}</a>
                                         <div class="text-sm op-5">  @foreach ($post->tags as $tag)
                                                 <a class="text-black mr-2" href="#">#{{ $tag->name }}</a>
                                             @endforeach
@@ -48,7 +42,7 @@
                                      </div>
                                     <div class="ms-auto text-end">
                                       @can(App\Policies\PostPolicy::UPDATE, $post)
-                                        <a class="btn btn-link text-danger text-gradient px-3 mb-0" ><i class="far fa-trash-alt me-2" ></i></a>
+                                        <a class="btn btn-link text-danger text-gradient px-3 mb-0"  data-bs-toggle="modal" data-bs-target="#deletePostModal" wire:click="deletePost({{$post->id}})"><i class="far fa-trash-alt me-2" ></i></a>
                                         @endcan
                                          @can(App\Policies\PostPolicy::DELETE, $post)
                                         <a class="btn btn-link text-dark px-3 mb-0" href="{{ route('posts.edit', $post->slug()) }}" ><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
@@ -90,7 +84,7 @@
                                         <h6 class="text-primary text-sm">
                                             <a href="#" class="text-primary">{{ $result->title }}</a>
                                         </h6>
-                                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$result->created_at->diffForHumans()}}</a> <span class="op-6"> by</span> <a class="text-black" href="#">AppStrapMaster</a></p>
+                                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{$result->created_at->diffForHumans()}}</a> <span class="op-6"> </span> </p>
                                     </div>
                                     <hr class="m-0">
                                 @empty
