@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\FormationInterne;
 use Illuminate\Http\Request;
 
+use ConsoleTVs\Charts\BaseChart;
+use Chartisan\PHP\Chartisan;
+
 class FormationInterneController extends Controller
 {
     /**
