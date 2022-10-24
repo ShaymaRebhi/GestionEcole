@@ -48,7 +48,7 @@ class CoursController extends Controller
     {
         //
             $request->validate([
-                    'nom_cours'          =>  'required',
+                    'nom_cours'          =>  'required|min:3',
 
                     'image_cours'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
                 ]);

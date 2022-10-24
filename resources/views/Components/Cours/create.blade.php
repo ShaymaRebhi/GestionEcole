@@ -25,6 +25,9 @@
 				<div class="col-sm-10">
 					<input type="text" name="nom_cours" class="form-control" />
 				</div>
+				@error('nom_cours')
+                {{ $message}}
+                @enderror
 			</div>
 
 			<div class="row mb-4">
