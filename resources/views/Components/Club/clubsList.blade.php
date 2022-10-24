@@ -7,7 +7,15 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Les clubs</h6>
+                        <form>
+        <input type="search"
+    class="form-control"
+    placeholder="Chercher un club"
+    name="search"
+    value="{{ request('search') }}">
+    </form>
                     </div>
+    
                     @csrf
                     <div class="col-md-4">
                         <button type="button" class="btn btn-block btn-default mb-3" data-bs-toggle="modal" data-bs-target="#modal-form">Ajouter</button>

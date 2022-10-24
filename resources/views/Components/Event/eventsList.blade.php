@@ -7,6 +7,13 @@
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Les évenements</h6>
+                        <form>
+        <input type="search"
+    class="form-control"
+    placeholder="Chercher un event"
+    name="search"
+    value="{{ request('search') }}">
+    </form>
                     </div>
                     <div class="card">
   <div class="table-responsive">
