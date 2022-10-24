@@ -40,13 +40,17 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-           $request->validate([
+         $request->validate([
             'nom' => 'required|string|max:255',
+            'type' => 'required',
             'nbPersonnes' => 'required|integer|max:50',
             'dateCreation' => 'required',
             'description' => 'required',
+
         ]);
-                $club = Club::create([
+            
+        
+        $club = Club::create([
             'nom' => $request->nom,
             'type' => $request->type,
             'nbPersonnes' => $request->nbPersonnes,
@@ -118,6 +122,15 @@ class ClubController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'type' => 'required',
+            'nbPersonnes' => 'required|integer|max:50',
+            'dateCreation' => 'required',
+            'description' => 'required',
+
+        ]);
+        
         $club = Club::find($request->id);
         //$input = $request->all();
         $club->type= $request->type;

@@ -1,6 +1,19 @@
 @extends('layouts.mainlayout')
 @section('content')
 @csrf
+@if($errors->any())
+
+<div class="alert alert-danger">
+	<ul>
+	@foreach($errors->all() as $error)
+
+		<li>{{ $error }}</li>
+
+	@endforeach
+	</ul>
+</div>
+
+@endif
 <div class="container-fluid py-4">
 
        <div class="row">
