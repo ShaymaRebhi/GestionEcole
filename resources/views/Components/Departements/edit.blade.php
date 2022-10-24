@@ -48,7 +48,7 @@
 				<label class="col-sm-2 col-label-form"> Etablissement</label>
 				<div class="col-sm-10">
 			<select class="form-select" aria-label="Default select example" name="etablissement_id">
-					<option selected>{{ $departement->etablissement_id }}</option>
+					<option selected disabled>{{ $etablissement->NomEtablissement }}</option>
 					@if(count($data1) > 0)
 
 				@foreach($data1 as $row)

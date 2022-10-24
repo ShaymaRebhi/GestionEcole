@@ -43,10 +43,11 @@ class DepartementController extends Controller
     {
        
         $request->validate([
-            'Nom'          =>  'required',
+            'Nom'          =>  'required|unique:departements',
             'Chef_Departement'         =>  'required',
             'Bloc'         =>  'required',
             'Etage'         =>  'required|integer|between:0,5',
+            'etablissement_id'         =>  'required',
            
         ]);
 
@@ -108,10 +109,11 @@ class DepartementController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Nom'          =>  'required',
+            'Nom'          =>  'required|unique:departements',
             'Chef_Departement'         =>  'required',
             'Bloc'         =>  'required',
             'Etage'         =>  'required|integer|between:0,5',
+            'etablissement_id'         =>  'required',
    
         ]);
 

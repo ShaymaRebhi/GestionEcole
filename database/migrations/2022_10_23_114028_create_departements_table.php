@@ -19,7 +19,10 @@ return new class extends Migration
             $table->string('Chef_Departement');
             $table->string('Bloc');
             $table->string('Etage');
-            $table->string('etablissement_id');
+            $table->foreignId(column:'etablissement_id')
+                ->constrained()
+                ->onUpdate(action:'restrict')
+                ->onDelete(action:'restrict');
             
             $table->timestamps();
         });
