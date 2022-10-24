@@ -5,7 +5,7 @@ namespace App\Jobs;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Str;
-use App\Events\ThreadWasCreated;
+use App\Events\PostWasCreated;
 use App\Http\Requests\PostStoreRequest;
 
 class CreatePost
@@ -61,7 +61,7 @@ class CreatePost
         $post->syncTags($this->tags);
         $post->save();
 
-        event(new ThreadWasCreated($post));
+        event(new PostWasCreated($post));
 
         return $post;
     }

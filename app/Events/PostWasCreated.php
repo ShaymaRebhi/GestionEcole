@@ -5,7 +5,7 @@ namespace App\Events;
 use App\Models\Post;
 use Illuminate\Queue\SerializesModels;
 
-class ThreadWasCreated
+class PostWasCreated
 {
     use SerializesModels;
 
