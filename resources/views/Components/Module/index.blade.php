@@ -51,7 +51,7 @@
 								<a href="{{ route('module.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
 								@method('DELETE')
                                 @csrf
-								<input type="submit"  class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete' />
+								<input type="submit" value="supprimer"  class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete' />
 							</form>
 
 						</td>
