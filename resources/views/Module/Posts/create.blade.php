@@ -1,48 +1,72 @@
 @extends('layouts.mainlayout')
 @section('content')
-<form method="POST" action="{{ route('posts.store') }}">
-    @csrf
-    <div class="mb-6">
-        <label class="block">
-            <span class="text-gray-700">Title</span>
-            <input type="text" name="title"
-                   class="block w-full @error('title') border-red-500 @enderror mt-1 rounded-md" placeholder=""
-                   value="{{old('title')}}" />
-        </label>
-        @error('title')
-        <div class="text-sm text-red-600">{{ $message }}</div>
-        @enderror
-    </div>
-    <div>
-        <label for="category" value="{{ __('Category') }}" >
-        <select name="category" id="category" class="w-full text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-            <option value="">Select Category</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id() }}">{{ $category->name() }}</option>
-            @endforeach
-        </select>
-        </label>
-    </div>
-    <div>
-        <label for="tags" value="{{ __('Tags') }}" >
-        <select name="tags[]" id="tags" x-data="{}" x-init="function () { choices($el) }" class="w-full text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" multiple>
-            @foreach ($tags as $tag)
-                <option value="{{ $tag->id() }}">{{ $tag->name() }}</option>
-            @endforeach
-        </select>
-        </label>
-    </div>
-    <div class="mb-6">
-        <label class="block">
-            <span class="text-gray-700">description</span>
-            <textarea class="block w-full mt-1 rounded-md " name="body"
-            rows="3"> {{old('body')}}</textarea>
-        </label>
-        @error('body')
-        <div class="text-sm text-red-600">{{ $message }}</div>
-        @enderror
-    </div>
-    <button type="submit" class="text-white bg-blue-600  rounded text-sm px-5 py-2.5">Submit</button>
+    <div class="container-fluid py-4 ">
+        <div class="row">
+            <div class="col-12">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div class="card ">
+                                    <div class="card-header pb-0 text-center">
+                                        <div class="card-header pb-0 text-center">
+                                            <h3 class="font-weight-bolder text-info text-gradient">Add post</h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                        <form method="POST" action="{{ route('posts.store') }}">
+                            @csrf
+            <!-- title input -->
+            <div class="">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control @error('title') border-red-500 @enderror mt-1 rounded-md" placeholder=""
+                       name="title" value="{{old('title')}}" id="title" type="text" />
+                @error('title')
+                <div class="text-center text-danger mb-3">{{ $message }}</div>
+                @enderror
+            </div>
 
-</form>
+            <!-- Category address input -->
+            <div class="">
+                <label class="form-label" for="emailAddress">Category</label>
+                <select name="category" class="form-control text-sm" data-toggle="select"  tabindex="-98" >
+                    <option label=" select.. ">  </option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id() }}">{{ $category->name() }}</option>
+                    @endforeach
+                </select>
+
+            </div>
+            <!-- Tag address input -->
+            <div class="">
+                <label class="form-label" for="tags" value="{{ __('Tags') }}">Tags</label>
+                <select  class="form-control text-sm" data-toggle="select" tabindex="-98" name="tags[]" id="tags" x-data="{}" x-init="function () { choices($el) }" multiple>
+                    <option label=" select.. ">  </option>
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id() }}">{{ $tag->name() }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Message input -->
+            <div class="">
+                <label class="form-label" for="body">Body</label>
+                <textarea class="form-control" name="body" id="body" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required">{{old('body')}}</textarea>
+                @error('body')
+                <div class="text-center text-danger mb-3">{{ $message }}</div>
+                @enderror
+            </div>
+
+
+            <!-- Form submit button -->
+            <div class="d-grid">
+                <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+            </div>
+                        </form>
+    </div>
+    </div>
+        </div>
+    </div>
+    </div>
+
+
 @endsection

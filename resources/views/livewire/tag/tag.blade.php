@@ -4,14 +4,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tagLabel">Create Category</h5>
+                <h5 class="modal-title" id="tagLabel">Create Tag</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         wire:click="closeModal"></button>
             </div>
             <form wire:submit.prevent="saveTag">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label>Category Name</label>
+                        <label>Tag Name</label>
                         <input type="text" wire:model="name" class="form-control">
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
@@ -32,14 +32,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateTagModalLabel">Edit Category</h5>
+                <h5 class="modal-title" id="updateTagModalLabel">Edit Tag</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" wire:click="closeModal"
                         aria-label="Close"></button>
             </div>
             <form wire:submit.prevent="updateTag">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label>Category Name</label>
+                        <label>Tag Name</label>
                         <input type="text" wire:model="name" class="form-control">
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
@@ -60,7 +60,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteTagModalLabel">Delete Category</h5>
+                <h5 class="modal-title" id="deleteTagModalLabel">Delete Tag</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" wire:click="closeModal"
                         aria-label="Close"></button>
             </div>

@@ -2,13 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\PostStoreRequest;
-use App\Jobs\CreatePost;
+
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,7 +20,25 @@ class PostShow extends Component
     public $search = '';
     public $mle = '';
 
+    public function deletePost(int $post_id)
+    {
+        $this->post_id = $post_id;
+    }
+    public function destroyPost()
+    {
+        Post::find($this->post_id)->delete();
+        session()->flash('success', 'Post Deleted!');
+    }
+    public function closeModal()
+    {
+        $this->resetInput();
+    }
 
+    public function resetInput()
+    {
+        $this->name = '';
+
+    }
     public function render()
     {
         $name ='';
