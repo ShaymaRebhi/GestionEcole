@@ -24,6 +24,9 @@ class EventController extends Controller
         return view('Components.Event.eventsList',['events'=>$events]);
     }
 
+    
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,6 +105,7 @@ class EventController extends Controller
         return redirect()->route('events.eventsList')->with('status', 'Event Updated Successfully'); 
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *

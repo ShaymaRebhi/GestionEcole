@@ -27,7 +27,6 @@
 	<p>
        Date de création : {{$club->dateCreation}}
     </p>
-    <button type="button" class="btn bg-gradient-primary mt-3">Read more</button>
   </div>
 
 </div>
