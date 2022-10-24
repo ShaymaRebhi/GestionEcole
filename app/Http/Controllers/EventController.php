@@ -48,7 +48,6 @@ class EventController extends Controller
         $request->validate([
             'nom' => 'required|string|max:255',
             'type' => 'required',
-            'nbPersonnes' => 'required|integer|max:50',
             'nbPersonnesMax' => 'required|integer',
             'date' => 'required',
             'time' => 'required',
@@ -110,7 +109,6 @@ class EventController extends Controller
         $request->validate([
             'nom' => 'required|string|max:255',
             'type' => 'required',
-            'nbPersonnes' => 'required|integer|max:50',
             'nbPersonnesMax' => 'required|integer',
             'date' => 'required',
             'time' => 'required',

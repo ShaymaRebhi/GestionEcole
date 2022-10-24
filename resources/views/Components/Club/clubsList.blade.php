@@ -80,7 +80,7 @@
                                       </div>
                                       <label>Nombre de personnes</label>
                                       <div class="input-group mb-3">
-                                        <input name="nbPersonnes" type="number" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input name="nbPersonnes" type="number" class="form-control" placeholder="" aria-label="Password" aria-describedby="password-addon">
                                         
                                         @error('nbPersonnes')
                                         <div class="alert alert-danger">
@@ -91,7 +91,7 @@
                                       </div>
                                       <label>Description</label>
                                       <div class="input-group mb-3">
-                                        <input name="description" type="textarea" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input name="description" type="textarea" class="form-control" placeholder="" aria-label="Password" aria-describedby="password-addon">
                                         
                                         @error('description')
                                         <div class="alert alert-danger">
