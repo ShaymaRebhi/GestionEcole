@@ -1,4 +1,4 @@
-# :student:Gestion ecole laravel App
+# :student:E-learning laravel App
 <div id="top" align="center">
    <img src="https://i.postimg.cc/R04ffVZN/312713313-485107070327871-51482485476274633-n.png" width="170" height="170"/>
   <div id="badges">
@@ -18,7 +18,7 @@
       <img src="https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge"/>
     </a>
     </div>
-<h3 align="center">Velo Laravel App</h3>
+<h3 align="center">E-learning Laravel App</h3>
   
   <p align="center">
 This is the official Gestion App documentation <br/>
@@ -60,7 +60,7 @@ This is the official Gestion App documentation <br/>
 
 <!-- ABOUT THE PROJECT -->
 ## 📃 About The Project
-<b>"Velo.tn"</b>is a solution to design and manage all your e-learning modules.<br>
+<b>"SchoolLab.tn"</b>is a solution to design and manage all your e-learning modules.<br>
 
  ### 📜 Project Main features
 1. ** Cours Management** 
@@ -72,7 +72,7 @@ This is the official Gestion App documentation <br/>
 7. ** Centre formation Management** 
 8. ** formation Management** 
 9. ** Departmenet Management** 
-10. **Users Management** 
+10.** Users Management** 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -172,7 +172,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 See the [open issues](https://github.com/ahlem-phantom/AI-HealthCare-Assistant/issues) for a list of proposed features (and known issues).
 
  - [x] Phase 1 : Template Integration using Blade
-	 - Frontoffice template
 	 - Backoffice template
 
 - [x] Phase 2 : Authentication Integration using JetStream
