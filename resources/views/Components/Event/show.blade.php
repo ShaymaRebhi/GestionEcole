@@ -11,6 +11,11 @@
     <p>Save the date on : {{$event->date }} {{$event->time}} à {{$event->lieu}}</p>
     <p>{{$event->nbPersonnes}} invités pour le moment</p>
     <p>Limite: {{$event->nbPersonnes}}</p>
+    @if($event->nbPersonnes < $event->nbPersonnesMax)
+    <p>Encore des places</p>
+    @else
+    <p style="color: green; font-weight:bold">Evénement complet</p>
+    @endif
 
 </div>
 </div>
@@ -22,7 +27,11 @@
 			<div class="col col-md-6"><b>Les participants</b></div>
 			<div class="col col-md-6">
 				<a href="{{ route('events.eventsList') }}" class="btn btn-primary btn-sm float-end">Vers la liste de tous les évenements</a>
+        @if($event->nbPersonnes < $event->nbPersonnesMax)
 			    <button type="button"  class="btn btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modal-form">Ajouter</button>
+          @else
+          <button disabled=true type="button"  class="btn btn-danger btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modal-form">Complet</button>
+          @endif
                         <div wire:ignore.self class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                             <div class="modal-content">
@@ -30,7 +39,7 @@
                                 <div class="card card-plain">
                                   <div class="card-header pb-0 text-left">
                                     <h3 class="font-weight-bolder text-info text-gradient">Inviter des participants</h3>
-                                  </div>
+                                  </div> 
                                   <div class="card-body">
                                     <form method="post" action="{{ route('events.inviter') }}" role="form text-left">
                                     {!! csrf_field() !!}

@@ -70,10 +70,12 @@
         @if($users)
 
 				@foreach($users as $user)
-            <div class="card card-frame">
-			
+        <div class="card card-frame">
               <div class="card-body">
-              {{$user->email}}
+              <i class="ni ni-circle-08"></i> 
+              <label class="col-m-2 col-label-form"><b>{{$user->name}}</b></label>
+              </br>
+              <label class="col-sm-2 col-label-form"><b>Email :{{$user->email}}</b></label>
               </div>
             </div>
             @endforeach
@@ -146,10 +148,13 @@
 			</div>
             @if($events)
 
-				@foreach($events as $event)
+				    @foreach($events as $event)
             <div class="card card-frame">
               <div class="card-body">
-              {{$event->type}}
+              <i class="ni ni-calendar-grid-58"></i> 
+              <label class="col-m-2 col-label-form"><b>{{$event->nom}}</b></label>
+              </br>
+              <label class="col-sm-2 col-label-form"><b>Date :{{$event->date}}</b></label>
               </div>
             </div>
             @endforeach
