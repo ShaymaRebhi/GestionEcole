@@ -9,7 +9,8 @@
   <div class="card-body pt-12">
     <h4 class="text-white">{{$event->nom}}</h4>
     <p>Save the date on : {{$event->date }} {{$event->time}} à {{$event->lieu}}</p>
-    <p>Website visitors today demand a frictionless user expericence — especially when using search. Because of the hight standards.</p>
+    <p>{{$event->nbPersonnes}} invités pour le moment</p>
+    <p>Limite: {{$event->nbPersonnes}}</p>
 
 </div>
 </div>
